@@ -375,7 +375,7 @@
     if (window.location.hostname === "localhost")
       pageDataLines = (await (await fetch("./docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
     else
-      pageDataLines = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/_pages.txt")).text())).replace(/\r/g, "").split("\n");
+      pageDataLines = (await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
 
     const pathStack = [];
     let lastIndentLevel = 0;

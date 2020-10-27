@@ -360,7 +360,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const linkedPage = urlParams.get('page');
     const linkedLocation = urlParams.get('location');
-    await updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index.md");
+    await updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
     // @ts-ignore
     if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, {dryrun: true})).scrollIntoView();
   })();
@@ -371,7 +371,13 @@
   (async () => {
     const indentSize = 2;
 
-    const pageDataLines = (await (await fetch("./docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
+    let pageDataLines;
+    if (window.location.hostname === "localhost")
+      pageDataLines = (await (await fetch("./docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
+    else
+      pageDataLines = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/_pages.txt")).text())).replace(/\r/g, "").split("\n");
+
+    pageDataLines = (await (await fetch("./docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
     const pathStack = [];
     let lastIndentLevel = 0;
     for (const line of pageDataLines) {

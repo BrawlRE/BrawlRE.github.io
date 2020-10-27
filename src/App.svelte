@@ -277,7 +277,7 @@
     if (window.location.hostname === "localhost")
       markedHTMLOut = marked((await (await fetch("./docs/" + contentName + ".md")).text()));
     else
-      markedHTMLOut = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/docs/" + contentName + ".md")).text()));
+      markedHTMLOut = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
 
     await tick();
 

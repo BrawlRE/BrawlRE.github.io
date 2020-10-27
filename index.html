@@ -1,0 +1,18 @@
+<!-- this file is necessary to make github pages work. Why? Because reasons. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    if (window.location.hostname == "localhost") {
+      console.log("nani??!");
+    } else {
+      window.location.href = window.location.href + "/public/";
+    }
+  </script>
+</body>
+</html>

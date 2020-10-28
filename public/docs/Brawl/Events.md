@@ -73,6 +73,7 @@ Here are the modules where each event module ends up actually executing.
 ```
 
 
+
 ## Module 00: Flow of Execution
 ```handsontable
 # OPTIONS
@@ -106,7 +107,7 @@ parameters [
 |||Value|Unknown|
 <$h4> 0x000A0400|<$h4> If Comparison|<$h4> Start an If block until an Else Or an EndIf is reached.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x000B0100|And|Seems to be an "and" to an If statement.|Requirement|Requirement|The form of requirement used in evaluation of
 <$h2> 0x000B0200|<$h2> And Value|<$h2> Seems to be an "and" to an If statement.|Requirement|Requirement|The form of requirement used in evaluation of the event.
@@ -116,7 +117,7 @@ parameters [
 |||Value|Unknown|Unknown
 <$h4> 0x000B0400|<$h4> And Comparison|<$h4> Seems to be an "And" to an If statement.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x000C0100|Or|Insert an alternate requirement to fall back on if the above requirement(s) are not met.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 <$h2> 0x000C0200|<$h2> Or Value|<$h2> Insert an alternate requirement to fall back on if the above requirement(s) are not met.|Requirement|Requirement|The form of requirement used in evaluation of the event.
@@ -126,7 +127,7 @@ parameters [
 |||Value|Unknown|
 <$h4> 0x000C0400|<$h4> Or Comparison|<$h4> Insert an alternate requirement to fall back on if the above requirement(s) are not met.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x000D0100|Else If|Insert an Else If block inside of an If block.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 <$h2> 0x000D0200|<$h2> Else If Value|<$h2> Insert an Else If block inside of an If block.|Requirement|Requirement|The form of requirement used in evaluation of the event.
@@ -136,12 +137,12 @@ parameters [
 |||Value|Unknown|
 <$h4> 0x000D0400|<$h4> Else If Comparison|<$h4> Insert an Else If block inside of an If block.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x000E0000|Else|Insert an Else block inside an If block.|<$w3>
 0x000F0000|End If|End an If block.|<$w3>
-<$h2> 0x00100200|<$h2> Switch|<$h2> Begin a multiple case Switch block.|undefined|Undefined|Any type? Has shown to be an IC-Basic "disguised" as a value, i.e. set as Value 0x3E9 but really uses {{Var
-|||undefined|Undefined|Any Type? Has shown to be a Requirement "disguised" as a value, i.e. set as Value 2B but really uses {{Req
+<$h2> 0x00100200|<$h2> Switch|<$h2> Begin a multiple case Switch block.|undefined|Undefined|Any type? Has shown to be an IC-Basic "disguised" as a value, i.e. set as Value 0x3E9 but really uses IC-Basic[1001] (the equivalent).
+|||undefined|Undefined|Any Type? Has shown to be a Requirement "disguised" as a value, i.e. set as Value 2B but really uses Requirement 2B Roll a Die.
 0x00110100|Case|Handler for if the variable in the switch statement equals the specified value.|Value|Undefined|
 0x00120000|Default Case|The case chosen if none of the others are executed.|<$w3>
 0x00130000|End Switch|End a Switch block.|<$w3>
@@ -163,9 +164,9 @@ parameters [
   description
 ]
 # DATA
-<$h1010000> 0x01000000|<$h1010000> Goto Loop Rest 1?|<$h1010000> Appears to work like {{Evt
+0x01000000|Goto Loop Rest 1?|Appears to work like Event 01010000, except used for loops created byEvent 00090100 (Goto).|<$w3>
 0x01010000|Loop Rest|Briefly return execution back to the system to prevent crashes during infinite loops.|<$w3>
-<$h1000000> 0x01020000|<$h1000000> Goto Loop Rest 2?|<$h1000000> Often follows {{Evt
+0x01020000|Goto Loop Rest 2?|Often follows Event 01000000.|<$w3>
 ```
 
 ## Module 02: Actions
@@ -183,14 +184,14 @@ parameters [
   description
 ]
 # DATA
-<$h3> 0x02000300|<$h3> Change Action Status|<$h3> Change the current action upon the specified requirement being met (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Status ID|The four-digit status ID of the change action event. Can later be disabled via {{Evt
+<$h3> 0x02000300|<$h3> Change Action Status|<$h3> Change the current action upon the specified requirement being met (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Status ID|The four-digit status ID of the change action event. Can later be disabled via Event 02080100 (Disable Action Status ID).
 |||Value|Action|The ID of the action that the character will execute.
 |||Requirement|Requirement|The form of requirement used in evaluation of the event.
 <$h4> 0x02000400|<$h4> Change Action Status Value|<$h4> Change the current action upon the specified requirement being met (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Status ID|The four-digit status ID of the change action event. Can later be disabled via
 |||Value|Action|The ID of the action that the character will execute.
 |||Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Value|Variable|The variable applied to the requirement.
-<$h5> 0x02000500|<$h5> Change Action Status Unknown|<$h5> Change the current action upon the specified requirement being met (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Status ID|The four-digit status ID of the change action event. Can later be disabled via {{Evt
+<$h5> 0x02000500|<$h5> Change Action Status Unknown|<$h5> Change the current action upon the specified requirement being met (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Status ID|The four-digit status ID of the change action event. Can later be disabled via Event 02080100 (Disable Action Status ID).
 |||Value|Action|The ID of the action that the character will execute.
 |||Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Value|Variable|The variable applied to the requirement.
@@ -212,7 +213,7 @@ parameters [
 <$h5> 0x02010500|<$h5> Change Action|<$h5> Change the current action upon the specified requirement being met. (the requirement does not have to be met at the time this ID is executed - it can be used anytime after execution.)|Value|Action|The id of the action that the character will execute.
 |||Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 <$h3> 0x02020300|<$h3> Unknown|<$h3> Used in the Primid file as alternatives to calling an AI procedure.|Value|Undefined|In the Primid file, seems to always equal 200.
 |||Value|Undefined|An action? (equals 7 when current action is not 7)
@@ -225,11 +226,11 @@ parameters [
 |||Value|Undefined|undefined
 <$h4> 0x02040400|<$h4> Additional Change Action Requirement Comparison|<$h4> Add an additional requirement to the preceeding Change Action statement.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x02060100|Enable Action Status ID|Enables the given Status ID.|Value|Status ID|The Status ID to enable.
 0x02080100|Disable Action Status ID|Disables the Action associated with the given Status ID.|Value|Status ID|The Status ID to disable. After this command, the associated Action will not activate.
-<$h20> 0x02090200|<$h20> Invert Action Status ID|<$h20> Appears to invert (or possibly only disable) a specific Status ID's enabled/disabled status. For example, if a character can crawl, this is used to disable the ability to dash when crouched, even though naturally crouching allows dashing through {{Evt|Value|Interrupt ID?|Appears to be a Interrupt ID as used by {{Evt
+<$h2> 0x02090200|<$h2> Invert Action Status ID|<$h2> Appears to invert (or possibly only disable) a specific Status ID's enabled/disabled status. For example, if a character can crawl, this is used to disable the ability to dash when crouched, even though naturally crouching allows dashing through Event 020A (Allow Specific Interrupt).|Value|Interrupt ID?|Appears to be a Interrupt ID as used by Event 020A (Allow Specific Interrupt).
 |||Value|Status ID?|Appears to be a Status ID.
 0x020A0100|Allow Specific Interrupt|Allows interruption only by specific commands.  See parameters for list of possible interrupts.|Value|Interrupt ID|Expand the window to view the full list.  List of types of commands: 1-Ground Special, 2-Ground Item, 3-Ground Catch, 4-Ground Attack, 5-Ground Escape, 6-Ground Guard, 7-Ground Jump, 8-Ground (other), 9-Air Landing, A-Grab Edge, B-Air Special, C-Air Item Throw, D-Air Lasso, E-Air Dodge, F-Air Attack, 10-Air Tread Jump, 11-Air Walljump, 12-Air Jump Aerial, 13-Fall Through Plat(only works in squat).
 0x020B0100|Disallow Specific Interrupt|Closes the specific interruption window. Must be set to the same thing as the allow specific interrupt that you wish to cancel.|Value|Interrupt ID|Expand the window to view the full list.  List of types of commands: 1-Ground Special, 2-Ground Item, 3-Ground Catch, 4-Ground Attack, 5-Ground Escape, 6-Ground Guard, 7-Ground Jump, 8-Ground (other), 9-Air Landing, A-Grab Edge, B-Air Special, C-Air Item Throw, D-Air Lasso, E-Air Dodge, F-Air Attack, 10-Air Tread Jump, 11-Air Walljump, 12-Air Jump Aerial, 13-Fall Through Plat(only works in squat).
@@ -265,7 +266,7 @@ parameters [
 |||Value|Undefined|undefined
 <$h4> 0x04020400|<$h4> Subactions 02 Compare|<$h4> |Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x04030100|Subactions 03|Seems to act as an additional requirement for Subactions 02.|Requirement|Requirement|The form of requirement used in evaluation of the event.
 <$h2> 0x04030200|<$h2> Subactions 03 Value|<$h2> |Requirement|Requirement|The form of requirement used in evaluation of the event.
@@ -275,7 +276,7 @@ parameters [
 |||Value|Undefined|undefined
 <$h4> 0x04030400|<$h4> Subactions 03 Compare|<$h4> |Requirement|Requirement|The form of requirement used in evaluation of the event.
 |||Variable|Variable|The first variable in the comparison requirement.
-|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: &lt;, &le;, {{eq, &ne;, &ge;, &gt;
+|||Value|Comparison Method|The method used to compare the two variables. From 0 to 5: <, <=, ==, !=, >=, >
 |||Variable|Variable|The second variable in the comparison requirement.
 0x04050100|Unknown|Used quite a bit in Meta Knight's special move actions.|Value|Undefined|undefined
 0x04060100|Set Animation Frame|Changes the current frame of the animation. Does not change the frame of the subaction (i.e. timers and such are unaffected).|Scalar|Frame|The frame to skip to.
@@ -335,11 +336,11 @@ parameters [
   description
 ]
 # DATA
-<$h13> 0x06000D00|<$h13> Offensive Collision|<$h13> Generate an offensive collision bubble with the specified parameters.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X{{eqBone, Y{{eqId.
+<$h13> 0x06000D00|<$h13> Offensive Collision|<$h13> Generate an offensive collision bubble with the specified parameters.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X==Bone, Y==Id.
 |||Value|Damage|The amount of damage inflicted to the target upon collision.
 |||Value|Trajectory|The direction in which a target gets launched.
-|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X{{eqWeight Knockback, Y{{eqKnockback Growth.
-|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X{{eqShield Damage, Y{{eqBase Knockback.
+|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X==Weight Knockback, Y==Knockback Growth.
+|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X==Shield Damage, Y==Base Knockback.
 |||Scalar|Size|The size of the collision bubble.
 |||Scalar|X Offset|The amount the collision bubble is transitioned relative to the currently attached bone.
 |||Scalar|Y Offset|The amount the collision bubble is transitioned relative to the currently attached bone.
@@ -394,7 +395,7 @@ parameters [
 |||Scalar|Y Offset|Transition relative to the currently attached bone.
 |||Scalar|Z Offset|Transition relative to the currently attached bone.
 |||Value|Action|The Action ID that the foe executes if successfully grabbed.
-|||Value|Air/Ground|0 {{eq grabs nothing, 1 {{eq grabs grounded only, 2 {{eq grabs aerial only, 3 {{eq grabs aerial and grounded.
+|||Value|Air/Ground|0 == grabs nothing, 1 == grabs grounded only, 2 == grabs aerial only, 3 == grabs aerial and grounded.
 <$h9> 0x060A0900|<$h9> Catch Collision 2|<$h9> Generate a grabbing collision bubble with the specified parameters|Value|ID|ID of catch collision.
 |||Value|Bone|The bone the grab is attached to.
 |||Scalar|Size|The size of the catch collision bubble.
@@ -402,7 +403,7 @@ parameters [
 |||Scalar|Y Offset|Transition relative to the currently attached bone.
 |||Scalar|Z Offset|Transition relative to the currently attached bone.
 |||Value|Action|The Action ID that the foe executes if successfully grabbed.
-|||Value|Air/Ground|0 {{eq grabs nothing, 1 {{eq grabs grounded only, 2 {{eq grabs aerial only, 3 {{eq grabs aerial and grounded.
+|||Value|Air/Ground|0 == grabs nothing, 1 == grabs grounded only, 2 == grabs aerial only, 3 == grabs aerial and grounded.
 |||Value|Unknown|???
 <$h10> 0x060A0A00|<$h10> Catch Collision 3|<$h10> Generate a grabbing collision bubble with the specified parameters. Used by Master Hand and Crazy Hand, As well as Olimar's Pikmin.|Value|ID|ID of catch collision.
 |||Value|Bone|The bone the grab is attached to.
@@ -411,7 +412,7 @@ parameters [
 |||Scalar|Y Offset|Transition relative to the currently attached bone.
 |||Scalar|Z Offset|Transition relative to the currently attached bone.
 |||Boolean|Action|The Action ID that the foe executes if successfully grabbed.
-|||Value|Air/Ground|0 {{eq grabs nothing, 1 {{eq grabs grounded only, 2 {{eq grabs aerial only, 3 {{eq grabs aerial and grounded.
+|||Value|Air/Ground|0 == grabs nothing, 1 == grabs grounded only, 2 == grabs aerial only, 3 == grabs aerial and grounded.
 |||Value|Unknown|???
 |||Boolean|Unknown|???
 0x060C0100|Delete Catch Collision|Deletes the catch collision with the specified ID.|Value|ID|ID of the collision to delete
@@ -429,7 +430,7 @@ parameters [
 |||Scalar|''Undefined''|
 |||Value|''Undefined''|
 |||Value|SFX|Sound effect played upon throw.
-|||Value|Air/Ground|0 {{eq Never Grabs, 1 {{eq Only Grabs Grounded Foes, 2 {{eq Only Grabs Aerial Foes, 3{{eq Grabs Aerial and Grounded Foes.
+|||Value|Air/Ground|0 == Never Grabs, 1 == Only Grabs Grounded Foes, 2 == Only Grabs Aerial Foes, 3== Grabs Aerial and Grounded Foes.
 |||Boolean|''Undefined''|
 |||Boolean|''Undefined''|
 |||Value|Type?|Almost always 8, which is typical invincibility frame length, but also the Throwing type - and it's 2 (Body-type) for Bowser's Flying Slam, 0 for most special moves and transformation Final Smashes. That said, if it's type, that would mean Nana's throws are Typeless.
@@ -445,9 +446,9 @@ parameters [
 |||Scalar|X Offset|Transition relative to the currently attached bone.
 |||Scalar|Y Offset|Transition relative to the currently attached bone.
 |||Scalar|Z Offset|Transition relative to the currently attached bone.
-|||Value|''Flags''|''+02 {{eq Hits Normally, +04{{eqCan be reflected....''
+|||Value|''Flags''|''+02 == Hits Normally, +04==Can be reflected....''
 |||Value|''F''|''Undefined''
-|||Value|Air/Ground|1 {{eq hits grounded, 2 {{eq hits aerial, 3 {{eq hits grounded and aerial
+|||Value|Air/Ground|1 == hits grounded, 2 == hits aerial, 3 == hits grounded and aerial
 |||Boolean|''Undefined''|''Undefined''
 |||Value|''Undefined''|''Undefined''
 |||Value|''Undefined''|''Undefined''
@@ -457,11 +458,11 @@ parameters [
 |||Value|''Undefined''|''Undefined''
 <$h2> 0x06140200|<$h2> &nbsp;|<$h2> Used to increase the damage of the Giant Punch when not fully charged.|Value|Id|The ID of the hitbox to change the damage of.
 |||Variable|Source|The variable to read to find out how much to change the damage.
-<$h15> 0x06150F00|<$h15> Special Offensive Collision|<$h15> Generate an offensive collision bubble - is able to achieve unique effects.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X{{eqBone, Y{{eqId.
+<$h15> 0x06150F00|<$h15> Special Offensive Collision|<$h15> Generate an offensive collision bubble - is able to achieve unique effects.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X==Bone, Y==Id.
 |||Value|Damage|The amount of damage inflicted to the target upon collision.
 |||Value|Trajectory|The direction in which a target gets launched.
-|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X{{eqWeight Knockback, Y{{eqKnockback Growth.
-|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X{{eqShield Damage, Y{{eqBase Knockback.
+|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X==Weight Knockback, Y==Knockback Growth.
+|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X==Shield Damage, Y==Base Knockback.
 |||Scalar|Size|The size of the collision bubble.
 |||Scalar|X Offset|Transition relative to the currently attached bone.
 |||Scalar|Y Offset|Transition relative to the currently attached bone.
@@ -590,11 +591,11 @@ parameters [
 |||Scalar|Undefined|
 |||Boolean|Undefined|
 |||Scalar|Undefined|
-<$h13> 0x062B0D00|<$h13> Collateral Hitbox|<$h13> Generates a damage collision bubble surrounding the character being thrown.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X{{eqBone, Y{{eqId.
+<$h13> 0x062B0D00|<$h13> Collateral Hitbox|<$h13> Generates a damage collision bubble surrounding the character being thrown.|Value|Bone/Id|The bone the collision bubble is attached to/The id number of the collision bubble. Where XXXXYYYY is X==Bone, Y==Id.
 |||Value|Damage|The amount of damage inflicted to the target upon collision.
 |||Value|Trajectory|The direction in which a target gets launched.
-|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X{{eqWeight Knockback, Y{{eqKnockback Growth.
-|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X{{eqShield Damage, Y{{eqBase Knockback.
+|||Value|Weight Knockback/Knockback Growth|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X==Weight Knockback, Y==Knockback Growth.
+|||Value|Shield Damage/Base Knockback|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X==Shield Damage, Y==Base Knockback.
 |||Scalar|Size|The size of the collision bubble.
 |||Scalar|X Offset|The amount the collision bubble is transitioned relative to the currently attached bone.
 |||Scalar|Y Offset|The amount the collision bubble is transitioned relative to the currently attached bone.
@@ -603,11 +604,11 @@ parameters [
 |||Scalar|Hitlag Multiplier|A multiplier affecting the time in which both parties pause when the collision bubble connects.
 |||Scalar|Directional Influence Multiplier|A multiplier affecting the ability for the character maneuver themselves while suffering from the hitlag generated by this collision bubble.
 |||Value|Flags|Flags for various parameters such as hit effects and sound effects.
-<$h15> 0x062C0F00|<$h15> Special Collateral Collision|<$h15> Used for the "bump" collisions that occur when a character in knockback collides with another body.|Value|Bone/ID?|The bone the collision bubble is attached to/The ID number of the collision bubble. Where XXXXYYYY is X{{eqBone, Y{{eqId.
+<$h15> 0x062C0F00|<$h15> Special Collateral Collision|<$h15> Used for the "bump" collisions that occur when a character in knockback collides with another body.|Value|Bone/ID?|The bone the collision bubble is attached to/The ID number of the collision bubble. Where XXXXYYYY is X==Bone, Y==Id.
 |||Value|Damage|The amount of damage inflicted to the target upon collision.
 |||Value|Trajectory|The direction in which a target gets launched.
-|||Value|Weight Knockback/Knockback Growth?|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X{{eqWeight Knockback, Y{{eqKnockback Growth.
-|||Value|Shield Damage/Base Knockback?|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X{{eqShield Damage, Y{{eqBase Knockback.
+|||Value|Weight Knockback/Knockback Growth?|The distance the target is launched proportional to weight for fixed knockback hits/The additional distance the target is launched proportional to its damage (launch force for fixed knockback hits). XXXXYYYY is X==Weight Knockback, Y==Knockback Growth.
+|||Value|Shield Damage/Base Knockback?|The amount of damage dealt to the target's shield if it is up/The distance the target is launched regardless of its damage (zero for fixed knockback hits). XXXXYYYY is X==Shield Damage, Y==Base Knockback.
 |||Scalar|Size?|The size of the collision bubble.
 |||Scalar|X Offset?|The amount the collision bubble is transitioned relative to the currently attached bone.
 |||Scalar|Y Offset?|The amount the collision bubble is transitioned relative to the currently attached bone.
@@ -731,7 +732,7 @@ parameters [
 |||Value|BoneGroup ID|Typically, 0 changes to the normal state, 1 changes the location or shape, and 2 removes it entirely.  (Example: Bowser is normal on 0, Bowser is in his shell on 1, and Bowser is invisible on 2)
 <$h2> 0x0B010200|<$h2> Model Display Toggle?|<$h2> Changes what entries of Hidden and Visible bone indexes from Model Display are used in some fashion. |Value|Entry to use?|Appears to correspond to what entry of the Model Display is used in the subaction.
 |||Value|Undefined|undefined
-0x0B020100|Visibility|Shows whether you're visible or not.|Boolean|Visibility|Set Boolean: True {{eq Visible, False {{eq Invisible
+0x0B020100|Visibility|Shows whether you're visible or not.|Boolean|Visibility|Set Boolean: True == Visible, False == Invisible
 ```
 
 ## Module 0C: Character Specific
@@ -755,15 +756,13 @@ parameters [
 0x0C060000|Enter Final Smash State|Allows use of Final Smash locked articles, variables, etc. Highly unstable.|<$w3>
 0x0C070000|Exit Final Smash State?|undefined|<$w3>
 0x0C080000|Terminate Self|Used by certain article instances to remove themselves.|<$w3>
-0x0C090100|Allow/Disallow Ledgegrab|Allow or disallow grabbing ledges during the current subaction.|Value|Allow/Disallow|0 {{eq cannot, 1 {{eq Only in front, 2 {{eq Always
+0x0C090100|Allow/Disallow Ledgegrab|Allow or disallow grabbing ledges during the current subaction.|Value|Allow/Disallow|0 == cannot, 1 == Only in front, 2 == Always
 0x0C0A0100|Character Specific 0A||Value|Undefined|undefined
 0x0C0B0000|Low Voice Clip|Play a random voice clip from the selection of low voice clips.|<$w3>
 0x0C130000|Character Specific 13|undefined|<$w3>
 0x0C160000|Character Specific 16|undefined|<$w3>
-0x0C170100|Character Specific 17|{{0. Often appears before {{Evt|<$w3>
-|||Boolean|Undefined|
-0x0C170200|Character Specific 17 Variable|{{0. Often appears before {{Evt|<$w3>
-|||Boolean|Undefined|
+0x0C170100|Character Specific 17|Undefined. Often appears before Event 0C25 (Tag Display).|Boolean|Undefined|
+<$h2> 0x0C170200|<$h2> Character Specific 17 Variable|<$h2> Undefined. Often appears before Event 0C25 (Tag Display).|Boolean|Undefined|
 |||Variable|Undefined|undefined
 0x0C190000|Damage Voice Clip|Play a random voice clip from the selection of damage voice clips.|<$w3>
 <$h2> 0x0C1A0200|<$h2> Character Specific 1A|<$h2> |Value|Undefined|
@@ -782,9 +781,9 @@ parameters [
 <$h2> 0x0C230200|<$h2> Time Manipulation|<$h2> Change the speed of time for various parts of the environment.|Value|Undefined|
 |||Value|Undefined|
 0x0C240100|Character Specific 24||Boolean|Undefined|undefined
-0x0C250100|Tag Display|Disables or enables tag display for the current subaction.|Boolean|Tag On/Off|True {{eq On, False {{eq Off
+0x0C250100|Tag Display|Disables or enables tag display for the current subaction.|Boolean|Tag On/Off|True == On, False == Off
 0x0C260100|Character Specific 26||Boolean|Undefined|undefined
-0x0C270000|Character Specific 27|{{0. Often appears within Switch statements.|<$w3>
+0x0C270000|Character Specific 27|Undefined. Often appears within Switch statements.|<$w3>
 0x0C290000|Character Specific 29|undefined|<$w3>
 0x0C2A0100|Character Specific 2A||Boolean|Undefined|undefined
 0x0C2B0000|Character Specific 2B|undefined|<$w3>
@@ -807,8 +806,7 @@ parameters [
 # DATA
 <$h2> 0x0D000200|<$h2> Concurrent Infinite Loop|<$h2> Runs a subroutine once per frame for the current action.|Value|PSA Stack|The event stack to run the subroutine (use 4, 6, or 9 or you risk crashes)
 |||Pointer|Offset|The subroutine location that contains the events that you would like to loop infinitely.
-0x0D010100|Terminate Concurrent Infinite Loop?|Seems to stop the execution of a loop created with{{Evt|<$w3>
-|||Value|Thread ID?|Possibly the thread ID of the concurrent routine. Sometimes 4, sometimes 6, sometimes 9.
+0x0D010100|Terminate Concurrent Infinite Loop?|Seems to stop the execution of a loop created withEvent 0D000200 (Concurrent Infinite Loop).|Value|Thread ID?|Possibly the thread ID of the concurrent routine. Sometimes 4, sometimes 6, sometimes 9.
 ```
 
 ## Module 0E: Movement
@@ -826,7 +824,7 @@ parameters [
   description
 ]
 # DATA
-0x0E000100|Set Kinetic State (Set Air/Ground)|Sets the current physics state.|Value|State|The state of the character's air/ground status. 0 {{eq  In Air, 1 {{eq  On Ground,{{DataType
+0x0E000100|Set Kinetic State (Set Air/Ground)|Sets the current physics state.|Value|State|The state of the character's air/ground status. 0 ==  In Air, 1 ==  On Ground,File 10 == Control stick does not affect  horizontal movement (or fastfall?)
 <$h2> 0x0E010200|<$h2> Add/Subtract Character Momentum|<$h2> Adds or subtracts speed to the character's current momentum.|Scalar|Horizontal Velocity|The speed of the character moving left/right.
 |||Scalar|Vertical Velocity|The speed of the character moving up/down.
 0x0E020100|Disallow Vertical Movement|When set to 1, vertical speed and acceleration are reset back to 0.|<$w3>
@@ -838,8 +836,8 @@ parameters [
 |||Scalar|Vertical Velocity|The speed of the object moving up/down.
 <$h4> 0x0E080400|<$h4> Set/Add Momentum|<$h4> Controls the movement velocity of the object.|Scalar|Horizontal Velocity|The speed of the object moving left/right.
 |||Scalar|Vertical Velocity|The speed of the object moving up/down.
-|||Value|Set/Add Horizontal|0 {{eq Add, 1 {{eq Set
-|||Value|Set/Add Vertical|0 {{eq Add, 1 {{eq Set
+|||Value|Set/Add Horizontal|0 == Add, 1 == Set
+|||Value|Set/Add Vertical|0 == Add, 1 == Set
 ```
 
 ## Module 0F: Link?
@@ -860,6 +858,9 @@ parameters [
 <$h2> 0x0F030200|<$h2> Link 03|<$h2> |Value|Undefined|
 |||Value|Undefined|undefined
 ```
+
+
+[[Category:Brawl Documentation]]
 
 ## Module 10: Articles
 ```handsontable
@@ -888,7 +889,7 @@ parameters [
 |||Value|Action|The action you would like the article to execute.
 |||Boolean|Subaction Exclusive?|Whether or not you want the article to be automatically deleted when the subaction ends.
 <$h2> 0x10050200|<$h2> Article Visibility|<$h2> Makes an article visible or invisible.|Value|Article|ID of the article to be affected.
-|||Boolean|Visibility|Set Boolean: True {{eq Visible, False {{eq Invisible
+|||Boolean|Visibility|Set Boolean: True == Visible, False == Invisible
 <$h2> 0x10070200|<$h2> Set Article Action|<$h2> Does the same thing as Set Article Action but seems to work on articles that aren't attached to the character.|Value|Article ID|ID of the article to be affected.
 |||Value|Action|The action you would like the article to execute.
 <$h2> 0x10080200|<$h2> Set Remote Article Action|<$h2> Does the same thing as Set Article Action but seems to work on articles that aren't attached to the character... God why are there so many of these. (Used on Snake's downB)|Value|Article ID|ID of the article to be affected.
@@ -934,7 +935,7 @@ parameters [
 |||Scalar|Random Y Rotation|A random value lesser than the specified value and added to the Y Rotation.
 |||Scalar|Random X Rotation|A random value lesser than the specified value and added to the X Rotation.
 |||Boolean|Terminate With Animation|Sets whether or not this graphic effect terminates when the animation ends.
-<$h10> 0x11010A00|<$h10> External Graphic Effect|<$h10> Generate a graphical effect from an external file. (usually the Ef_ file)|Value|Graphic|The file from which to call from/The graphical effect to call. Where XXXXYYYY is X{{eqFile# Y{{eqGraphic id
+<$h10> 0x11010A00|<$h10> External Graphic Effect|<$h10> Generate a graphical effect from an external file. (usually the Ef_ file)|Value|Graphic|The file from which to call from/The graphical effect to call. Where XXXXYYYY is X==File# Y==Graphic id
 |||Value|Bone|The bone to attach the graphical effect to.
 |||Scalar|Z Offset|Transition from the attached bone along the Z axis.
 |||Scalar|Y Offset|Transition from the attached bone along the Y axis.
@@ -944,7 +945,7 @@ parameters [
 |||Scalar|X Rotation|Rotation along the X axis.
 |||Scalar|Size|The size of the graphic.
 |||Boolean|Terminate With Animation|Sets whether or not this graphic  effect terminates when the animation ends.
-<$h10> 0x11020A00|<$h10> External Graphic Effect|<$h10> Generate a graphical effect from an external file. (usually the Ef_ file)|Value|Graphic|The file from which to call from/The graphical effect to call. Where XXXXYYYY is X{{eqFile# Y{{eqGraphic id
+<$h10> 0x11020A00|<$h10> External Graphic Effect|<$h10> Generate a graphical effect from an external file. (usually the Ef_ file)|Value|Graphic|The file from which to call from/The graphical effect to call. Where XXXXYYYY is X==File# Y==Graphic id
 |||Value|Bone|The bone to attach the graphical effect to.
 |||Scalar|Z Offset|Transition from the attached bone along the Z axis.
 |||Scalar|Y Offset|Transition from the attached bone along the Y axis.
@@ -1201,7 +1202,7 @@ parameters [
 0x18010200|Slope Contour Full?|Moves entire character to match sloped ground?|<$w3>
 ```
 
-## Module 19: {{0}}
+## Module 19: Undefined
 ```handsontable
 # OPTIONS
 # COLUMNS
@@ -1246,9 +1247,9 @@ parameters [
 |||Scalar|Undefined|
 |||Scalar|Undefined|
 |||Scalar|Undefined|
-0x1A060100|Detach/Attach Camera (Close)|Causes the camera to follow or stop following a character.|Boolean|Detached/Attached|False&nbsp;{{eq&nbsp;detached, true&nbsp;{{eq&nbsp;attached.
+0x1A060100|Detach/Attach Camera (Close)|Causes the camera to follow or stop following a character.|Boolean|Detached/Attached|False&nbsp;==&nbsp;detached, true&nbsp;==&nbsp;attached.
 0x1A070100|Detach/Attach Camera (Far)|Causes the camera to follow|<$w3>
-|||Boolean|Detached/Attached|False&nbsp;{{eq&nbsp;detached, true&nbsp;{{eq&nbsp;attached.
+|||Boolean|Detached/Attached|False&nbsp;==&nbsp;detached, true&nbsp;==&nbsp;attached.
 0x1A080000|Normal Camera|Return the camera to its normal settings.|<$w3>
 0x1A090000|Camera 09||<$w3>
 0x1A0A0100|Camera 0A||Value|Undefined|
@@ -1289,7 +1290,7 @@ parameters [
   description
 ]
 # DATA
-<$h2> 0x1E000200|<$h2> Super/Heavy Armor|<$h2> Begins super armor or heavy armor.  Set both parameters to 0 to end the armor.|Value|Armor State|0 {{eq None, 1 {{eq Super Armor, 2 {{eq Knockback Based Heavy Armor 3 {{eq Damage Based Heavy Armor
+<$h2> 0x1E000200|<$h2> Super/Heavy Armor|<$h2> Begins super armor or heavy armor.  Set both parameters to 0 to end the armor.|Value|Armor State|0 == None, 1 == Super Armor, 2 == Knockback Based Heavy Armor 3 == Damage Based Heavy Armor
 |||Scalar|Heavy Armor Tolerance|The minimum damage or KB that will cause the character to flinch when using heavy armor.
 0x1E010100|Set Damage Immunity?|Used at the start of Withdraw; might have something to do with Squirtle's immunity to damage during the move.|Boolean|Undefined|undefined
 0x1E030100|Add/Subtract Damage|Adds or subtracts the specified amount of damage from the character's current percentage.|Scalar|Damage|The amount of damage to add or subtract.
@@ -1328,7 +1329,7 @@ parameters [
 0x1F060100|Fire Projectile|Fires a projectile of the specified degree of power.|<$w3>
 0x1F070100|Items 1F| Is used when firing a cracker launcher.|Variable|Undefined|
 0x1F080100|Generate Item|Generate an item in the character's hand.|Value|Undefined|
-0x1F090100|Item Visibility|Determines visibilty of the currently held item.|Boolean|Item Visibility|Set Boolean: True {{eq Visible, False {{eq Invisible
+0x1F090100|Item Visibility|Determines visibilty of the currently held item.|Boolean|Item Visibility|Set Boolean: True == Visible, False == Invisible
 0x1F0A0000|Obliterate Held Item|Deletes the item that the character is holding|<$w3>
 0x1F0C0100|Beam Sword Trail|Creates a beam sword trail. Probably has more uses among battering weapons.|Value|Undefined|
 <$h5> 0x1F0E0500|<$h5> Throw Item|<$h5> Causes the character to throw the currently held item.|Scalar|Undefined|
@@ -1337,6 +1338,9 @@ parameters [
 |||Variable|Undefined|
 |||Variable|Undefined|
 ```
+
+
+[[Category:Brawl Documentation]]
 
 ## Module 20: Turn?
 ```handsontable
@@ -1376,7 +1380,7 @@ parameters [
 <$h4> 0x21010400|<$h4> Flash Overlay Effect|<$h4> Generate a flash overlay effect over the character with the specified colors and opacity. Replaces any currently active flash effects.|Value|R|The red value from 0-255.
 |||Value|G|The green value from 0-255.
 |||Value|B|The blue value from 0-255.
-|||Value|A|The alpha value from 0-255 (0 {{eq fully transparent, 255 {{eq fully opaque).
+|||Value|A|The alpha value from 0-255 (0 == fully transparent, 255 == fully opaque).
 <$h5> 0x21020500|<$h5> Change Flash Overlay Color|<$h5> Changes the color of the current flash overlay effect.|Value|Transition Time|The number of frames the colour change takes.
 |||Value|R|The red value (0-255) of the target colour.
 |||Value|G|The green value (0-255) of the target colour.
@@ -1385,7 +1389,7 @@ parameters [
 <$h6> 0x21050600|<$h6> Flash Light Effect|<$h6> Generate a flash lighting effect over the character with the specified colors, opacity and angle.  Replaces any currently active flash effects.|Value|R|The red value from 0-255.
 |||Value|G|The green value from 0-255.
 |||Value|B|The blue value from 0-255.
-|||Value|A|The alpha value from 0-255 (0 {{eq fully transparent, 255 {{eq fully opaque).
+|||Value|A|The alpha value from 0-255 (0 == fully transparent, 255 == fully opaque).
 |||Scalar|Angle|The angle in degrees of the virtual light source.
 |||Scalar|''Unknown''|Possibly the distance of the virtual light source?
 <$h5> 0x21070500|<$h5> Change Flash Light Colour|<$h5> Changes the colour of the current flash light effect.|Value|Transition Time|The number of frames the colour change takes.
@@ -1596,3 +1600,4 @@ parameters [
 <$h2> 0x6E000200|<$h2> Unknown|<$h2> |Value|Undefined|
 |||Value|Undefined|
 ```
+

@@ -184,7 +184,7 @@
         // @ts-ignore
         return `<a href="${window.location.origin}?page=${localStorage.getItem("lastPage")}&location=${new Slugger().slug(href.substr(1), {dryrun: true})}">${text}</a>`
       } else if (href.includes("localhost") || href.includes("brawlre.github.io")) {
-        return `<a href="${window.location.origin}/${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
+        return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
       }
 
       return false;

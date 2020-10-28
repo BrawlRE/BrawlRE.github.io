@@ -109027,7 +109027,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (450:8) {:else}
+    // (458:8) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "";
@@ -109049,10 +109049,10 @@ var app = (function () {
 
     			attr_dev(div, "class", div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
     			? "current"
-    			: "") + " svelte-txdonr");
+    			: "") + " svelte-6l43g3");
 
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 450, 10, 21283);
+    			add_location(div, file, 458, 10, 21814);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109070,7 +109070,7 @@ var app = (function () {
 
     			if (dirty & /*lastPage, pages*/ 40 && div_class_value !== (div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
     			? "current"
-    			: "") + " svelte-txdonr")) {
+    			: "") + " svelte-6l43g3")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
@@ -109089,14 +109089,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(450:8) {:else}",
+    		source: "(458:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (443:8) {#if page.endsWith("/")}
+    // (451:8) {#if page.endsWith("/")}
     function create_if_block(ctx) {
     	let div;
     	let span;
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 447, 10, 21177);
-    			attr_dev(div, "class", "nav-dir-header svelte-txdonr");
+    			add_location(span, file, 455, 10, 21708);
+    			attr_dev(div, "class", "nav-dir-header svelte-6l43g3");
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 443, 8, 21050);
+    			add_location(div, file, 451, 8, 21581);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109137,14 +109137,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(443:8) {#if page.endsWith(\\\"/\\\")}",
+    		source: "(451:8) {#if page.endsWith(\\\"/\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (442:6) {#each pages as page}
+    // (450:6) {#each pages as page}
     function create_each_block_1(ctx) {
     	let show_if;
     	let if_block_anchor;
@@ -109190,14 +109190,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(442:6) {#each pages as page}",
+    		source: "(450:6) {#each pages as page}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (467:6) {#each TOC as header}
+    // (475:6) {#each TOC as header}
     function create_each_block(ctx) {
     	let li;
     	let a;
@@ -109211,10 +109211,10 @@ var app = (function () {
     			a = element("a");
     			t = text(t_value);
     			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
-    			add_location(a, file, 467, 61, 21825);
+    			add_location(a, file, 475, 61, 22356);
     			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
-    			attr_dev(li, "class", "svelte-txdonr");
-    			add_location(li, file, 467, 8, 21772);
+    			attr_dev(li, "class", "svelte-6l43g3");
+    			add_location(li, file, 475, 8, 22303);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109241,7 +109241,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(467:6) {#each TOC as header}",
+    		source: "(475:6) {#each TOC as header}",
     		ctx
     	});
 
@@ -109314,30 +109314,30 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(button0, "class", "sidebarButton svelte-txdonr");
-    			add_location(button0, file, 433, 2, 20568);
-    			attr_dev(button1, "class", "navButton svelte-txdonr");
-    			add_location(button1, file, 434, 2, 20657);
-    			attr_dev(header, "class", "svelte-txdonr");
-    			add_location(header, file, 432, 0, 20557);
+    			attr_dev(button0, "class", "sidebarButton svelte-6l43g3");
+    			add_location(button0, file, 441, 2, 21099);
+    			attr_dev(button1, "class", "navButton svelte-6l43g3");
+    			add_location(button1, file, 442, 2, 21188);
+    			attr_dev(header, "class", "svelte-6l43g3");
+    			add_location(header, file, 440, 0, 21088);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
-    			: "") + " svelte-txdonr");
+    			: "") + " svelte-6l43g3");
 
-    			add_location(div0, file, 436, 0, 20748);
-    			attr_dev(div1, "class", "list svelte-txdonr");
-    			add_location(div1, file, 440, 4, 20962);
-    			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-txdonr");
-    			add_location(div2, file, 439, 2, 20902);
-    			attr_dev(div3, "class", "content svelte-txdonr");
-    			add_location(div3, file, 461, 2, 21618);
-    			attr_dev(ul, "class", "svelte-txdonr");
-    			add_location(ul, file, 465, 4, 21731);
-    			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-txdonr");
-    			add_location(div4, file, 464, 2, 21679);
-    			attr_dev(main, "class", "svelte-txdonr");
-    			add_location(main, file, 438, 0, 20893);
+    			add_location(div0, file, 444, 0, 21279);
+    			attr_dev(div1, "class", "list svelte-6l43g3");
+    			add_location(div1, file, 448, 4, 21493);
+    			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3");
+    			add_location(div2, file, 447, 2, 21433);
+    			attr_dev(div3, "class", "content svelte-6l43g3");
+    			add_location(div3, file, 469, 2, 22149);
+    			attr_dev(ul, "class", "svelte-6l43g3");
+    			add_location(ul, file, 473, 4, 22262);
+    			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3");
+    			add_location(div4, file, 472, 2, 22210);
+    			attr_dev(main, "class", "svelte-6l43g3");
+    			add_location(main, file, 446, 0, 21424);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109382,7 +109382,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*sidebarIsActive, TOCIsActive*/ 6 && div0_class_value !== (div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
-    			: "") + " svelte-txdonr")) {
+    			: "") + " svelte-6l43g3")) {
     				attr_dev(div0, "class", div0_class_value);
     			}
 
@@ -109410,7 +109410,7 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*sidebarIsActive*/ 4 && div2_class_value !== (div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-txdonr")) {
+    			if (dirty & /*sidebarIsActive*/ 4 && div2_class_value !== (div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3")) {
     				attr_dev(div2, "class", div2_class_value);
     			}
 
@@ -109439,7 +109439,7 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*TOCIsActive*/ 2 && div4_class_value !== (div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-txdonr")) {
+    			if (dirty & /*TOCIsActive*/ 2 && div4_class_value !== (div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3")) {
     				attr_dev(div4, "class", div4_class_value);
     			}
     		},
@@ -109718,13 +109718,16 @@ var app = (function () {
     		// @ts-ignore
     		link(href, title, text) {
     			if (href.startsWith("/")) {
-    				// @ts-ignore
-    				return `<a href="${window.location.origin}${window.location.pathname}?page=${href.substring(1, href.indexOf("#"))}&location=${new marked.Slugger().slug(href.substr(href.indexOf("#")), { dryrun: true })}">${text}</a>`;
+    				const anchorPos = href.indexOf("#") == -1 ? undefined : href.indexOf("#");
+
+    				if (pages.includes(href.substring(1, anchorPos))) // @ts-ignore
+    				return `<a href="${window.location.origin}${window.location.pathname}?page=${href.substring(1, anchorPos)}&location=${new marked.Slugger().slug(href.substr(href.indexOf("#")), { dryrun: true })}">${text}</a>`; else return `<span class="invalid-link" data-targetpage="${href.substring(1, anchorPos)}">${text}</span>`;
     			} else if (href.startsWith("#")) {
     				// @ts-ignore
     				return `<a href="${window.location.origin}${window.location.pathname}?page=${localStorage.getItem("lastPage")}&location=${new marked.Slugger().slug(href.substr(1), { dryrun: true })}">${text}</a>`;
     			} else if (href.includes("localhost") || href.includes("brawlre.github.io")) {
-    				return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
+    				const targetPage = new URLSearchParams(href).get("page");
+    				if (pages.includes(targetPage)) return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`; else return `<span class="invalid-link" data-targetpage="${targetPage}">${text}</span>`;
     			}
 
     			return false;

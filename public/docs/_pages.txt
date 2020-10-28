@@ -1,6 +1,15 @@
 Brawl/
   Actions
   Article_Variables
+  Articles
+  Buttons
+  Character_Specific_Variables
+  Character_Subactions
+  Data_Types_List
+  Effect_Pac_ids
+  Enemies
+  Event_Match_Files
+  Kirby_Hat_Variables
 Tools/
   TestPage
 index

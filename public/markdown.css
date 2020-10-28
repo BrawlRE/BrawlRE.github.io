@@ -80,9 +80,8 @@ p, blockquote, ul, ol, dl, li, table, pre {
   margin: 15px 0; }
 
 hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
   border: 0 none;
-  color: #cccccc;
+  border-top: 2px solid #ccc;
   height: 4px;
   padding: 0; }
 

@@ -184,13 +184,21 @@
     // @ts-ignore
     link(href: string, title: string, text: string): string | boolean {
       if (href.startsWith("/")) {
-        // @ts-ignore
-        return `<a href="${window.location.origin}${window.location.pathname}?page=${href.substring(1, href.indexOf("#"))}&location=${new Slugger().slug(href.substr(href.indexOf("#")), {dryrun: true})}">${text}</a>`
+        const anchorPos = (href.indexOf("#") == -1) ? undefined : href.indexOf("#");
+        if (pages.includes(href.substring(1, anchorPos)))
+          // @ts-ignore
+          return `<a href="${window.location.origin}${window.location.pathname}?page=${href.substring(1, anchorPos)}&location=${new Slugger().slug(href.substr(href.indexOf("#")), {dryrun: true})}">${text}</a>`
+        else
+          return `<span class="invalid-link" data-targetpage="${href.substring(1, anchorPos)}">${text}</span>`;
       } else if (href.startsWith("#")) {
         // @ts-ignore
         return `<a href="${window.location.origin}${window.location.pathname}?page=${localStorage.getItem("lastPage")}&location=${new Slugger().slug(href.substr(1), {dryrun: true})}">${text}</a>`
       } else if (href.includes("localhost") || href.includes("brawlre.github.io")) {
-        return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
+        const targetPage = (new URLSearchParams(href)).get("page");
+        if (pages.includes(targetPage))
+          return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
+        else
+          return `<span class="invalid-link" data-targetpage="${targetPage}">${text}</span>`;
       }
 
       return false;
@@ -537,6 +545,33 @@ main > .content::-webkit-scrollbar {
 :global(.wtHider) {
   /* idk why but it breaks without this extremly hacky solution :( */
   height: initial !important;
+}
+
+:global(.invalid-link) {
+  color: #F00;
+  position: relative;
+}
+:global(.invalid-link::after) {
+  content: attr(data-targetpage);
+  opacity: 0;
+  background-color: black;
+  color: white;
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  height: 20px;
+  padding: 2px;
+  border-radius: 2px;
+  transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+:global(.invalid-link:hover) {
+  text-decoration: underline;
+}
+:global(.invalid-link:hover::after) {
+  top: -25px;
+  opacity: 1;
+  transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 main > .TOC > ul {

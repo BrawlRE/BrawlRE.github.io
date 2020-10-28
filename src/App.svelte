@@ -334,6 +334,7 @@
               tableToggleButton.onclick = toggleTableVisibilityFn;
               tableToggleButton.innerText = "hide table";
               tableEditCopyButton.innerText = "edit table";
+              tableEditCopyButton.onclick = enableEditFn;
             }
             tableToggleButton.innerText = "stop editing";
             tableEditCopyButton.onclick = () => {
@@ -379,6 +380,7 @@
             tableToggleButton.onclick = toggleTableVisibilityFn;
             tableToggleButton.innerText = "hide table";
             tableEditCopyButton.innerText = "edit table";
+            tableEditCopyButton.onclick = enableEditFn;
           }
           tableToggleButton.innerText = "stop editing";
           tableEditCopyButton.onclick = () => {

@@ -10,6 +10,7 @@ Brawl/
   Enemies
   Event_Match_Files
   Events
+  Fighter_Module_Constants
   Kirby_Hat_Variables
 Tools/
   TestPage

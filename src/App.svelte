@@ -39,6 +39,7 @@
   let TOC = [];
   let TOCIsActive = false;
   let sidebarIsActive = false;
+  let lastPage = localStorage.getItem("lastPage");
 
   const renderer: marked.Renderer = {
     // @ts-ignore
@@ -274,6 +275,7 @@
   let markedHTMLOut = "";
   const updatePageContent = async (contentName: string) => {
     localStorage.setItem("lastPage", contentName);
+    lastPage = contentName;
     tables.length = 0;
     TOC.length = 0;
     if (window.location.hostname === "localhost")
@@ -295,16 +297,17 @@
           const tableEditCopyButton = document.createElement("button");
           tableEditCopyButton.innerText = "edit table";
           const tableDisplayEl = document.createElement("div");
-          tableToggleButton.onclick = () => {
+          const toggleTableVisibilityFn = () => {
             tableToggleButton.innerText = ((tableDisplayEl.style.display === "none") ? "hide" : "show") + " table";
             tableEditCopyButton.style.display = (tableDisplayEl.style.display === "none") ? "inline-block" : "none";
             tableDisplayEl.style.display = (tableDisplayEl.style.display === "none") ? "inline-block" : "none";
           }
+          tableToggleButton.onclick = toggleTableVisibilityFn;
           tableBaseEl.appendChild(tableToggleButton);
           tableBaseEl.appendChild(tableEditCopyButton);
           tableBaseEl.appendChild(tableDisplayEl);
           const htable = new hotable(tableDisplayEl, tableConfig);
-          tableEditCopyButton.onclick = () => {
+          const enableEditFn = () => {
             htable.updateSettings({
               readOnly: false,
               contextMenu: true,
@@ -312,10 +315,20 @@
               allowInsertRow: true,
             })
             tableEditCopyButton.innerText = "copy as markdown"
+            tableToggleButton.onclick = () => {
+              htable.updateSettings({
+                readOnly: true,
+                contextMenu: false
+              })
+              tableToggleButton.onclick = toggleTableVisibilityFn;
+              tableToggleButton.innerText = "hide table";
+            }
+            tableToggleButton.innerText = "stop editing";
             tableEditCopyButton.onclick = () => {
               copyToClipboard(serializeHOTable(htable));
             }
           }
+          tableEditCopyButton.onclick = enableEditFn;
         }
         document.getElementById(`HOTable-${idx}`).appendChild(renderBtn);
       }
@@ -327,17 +340,18 @@
         const tableEditCopyButton = document.createElement("button");
           tableEditCopyButton.innerText = "edit table";
         const tableDisplayEl = document.createElement("div");
-        tableToggleButton.onclick = () => {
+        const toggleTableVisibilityFn = () => {
           tableToggleButton.innerText = ((tableDisplayEl.style.display === "none") ? "hide" : "show") + " table";
           tableEditCopyButton.style.display = (tableDisplayEl.style.display === "none") ? "inline-block" : "none";
           tableDisplayEl.style.display = (tableDisplayEl.style.display === "none") ? "inline-block" : "none";
         }
+        tableToggleButton.onclick = toggleTableVisibilityFn;
 
         tableBaseEl.appendChild(tableToggleButton);
         tableBaseEl.appendChild(tableEditCopyButton);
         tableBaseEl.appendChild(tableDisplayEl);
         const htable = new hotable(tableDisplayEl, tableConfig);
-        tableEditCopyButton.onclick = () => {
+        const enableEditFn = () => {
           htable.updateSettings({
             readOnly: false,
             contextMenu: true,
@@ -345,10 +359,20 @@
             allowInsertRow: true,
           })
           tableEditCopyButton.innerText = "copy as markdown"
+          tableToggleButton.onclick = () => {
+            htable.updateSettings({
+              readOnly: true,
+              contextMenu: false
+            });
+            tableToggleButton.onclick = toggleTableVisibilityFn;
+            tableToggleButton.innerText = "hide table";
+          }
+          tableToggleButton.innerText = "stop editing";
           tableEditCopyButton.onclick = () => {
             copyToClipboard(serializeHOTable(htable));
           }
         }
+        tableEditCopyButton.onclick = enableEditFn;
       }
     }
 
@@ -420,9 +444,9 @@
         </div>
         {:else}
           <div
-            class="nav-link"
+            class="nav-link {(lastPage === page) ? "current" : ""}"
             on:click={() => updatePageContent(page)}
-            style="margin-left: {(page.split('/').length - 1) * 10}px"
+            style="margin-left: {(page.split('/').length - 1) * 10}px;"
           >
             {page.split("/")[page.split("/").length - 1]}
           </div>
@@ -475,6 +499,22 @@ main > .sidebar > .list {
 .list > .nav-link:hover {
   background-color: #0001;
   cursor: pointer;
+}
+
+.list > .nav-link.current {
+  pointer-events: none;
+  position: relative;
+  background-color: #0001;
+  padding-left: 5px;
+}
+.list > .nav-link.current::before {
+  content: '';
+  position: absolute;
+  display: block;
+  right: 100%;
+  height: 100%;
+  width: 3px;
+  background-color: red;
 }
 
 main > .content {
@@ -600,6 +640,10 @@ header {
   main > .content {
     margin-top: 65px;
     height: calc(100vh - 65px);
+  }
+
+  :global(.htDimmed) {
+    pointer-events: none;
   }
 }
 </style>

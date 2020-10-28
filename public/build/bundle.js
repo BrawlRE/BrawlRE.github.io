@@ -109017,27 +109017,28 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[16] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[19] = list[i];
     	return child_ctx;
     }
 
-    // (421:8) {:else}
+    // (445:8) {:else}
     function create_else_block(ctx) {
     	let div;
-    	let t0_value = /*page*/ ctx[18].split("/")[/*page*/ ctx[18].split("/").length - 1] + "";
+    	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "";
     	let t0;
     	let t1;
+    	let div_class_value;
     	let mounted;
     	let dispose;
 
     	function click_handler_3(...args) {
-    		return /*click_handler_3*/ ctx[9](/*page*/ ctx[18], ...args);
+    		return /*click_handler_3*/ ctx[10](/*page*/ ctx[19], ...args);
     	}
 
     	const block = {
@@ -109045,9 +109046,13 @@ var app = (function () {
     			div = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div, "class", "nav-link svelte-1tyrdv8");
-    			set_style(div, "margin-left", (/*page*/ ctx[18].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 421, 10, 19847);
+
+    			attr_dev(div, "class", div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
+    			? "current"
+    			: "") + " svelte-txdonr");
+
+    			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
+    			add_location(div, file, 445, 10, 21066);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109061,10 +109066,16 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*pages*/ 16 && t0_value !== (t0_value = /*page*/ ctx[18].split("/")[/*page*/ ctx[18].split("/").length - 1] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*pages*/ 16) {
-    				set_style(div, "margin-left", (/*page*/ ctx[18].split("/").length - 1) * 10 + "px");
+    			if (dirty & /*lastPage, pages*/ 40 && div_class_value !== (div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
+    			? "current"
+    			: "") + " svelte-txdonr")) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+
+    			if (dirty & /*pages*/ 32) {
+    				set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109078,18 +109089,18 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(421:8) {:else}",
+    		source: "(445:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (414:8) {#if page.endsWith("/")}
+    // (438:8) {#if page.endsWith("/")}
     function create_if_block(ctx) {
     	let div;
     	let span;
-    	let t0_value = /*page*/ ctx[18].split("/")[/*page*/ ctx[18].split("/").length - 2] + "/" + "";
+    	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 2] + "/" + "";
     	let t0;
     	let t1;
 
@@ -109099,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 418, 10, 19741);
-    			attr_dev(div, "class", "nav-dir-header svelte-1tyrdv8");
-    			set_style(div, "margin-left", (/*page*/ ctx[18].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 414, 8, 19614);
+    			add_location(span, file, 442, 10, 20960);
+    			attr_dev(div, "class", "nav-dir-header svelte-txdonr");
+    			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
+    			add_location(div, file, 438, 8, 20833);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109111,10 +109122,10 @@ var app = (function () {
     			append_dev(div, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*pages*/ 16 && t0_value !== (t0_value = /*page*/ ctx[18].split("/")[/*page*/ ctx[18].split("/").length - 2] + "/" + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 2] + "/" + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*pages*/ 16) {
-    				set_style(div, "margin-left", (/*page*/ ctx[18].split("/").length - 2) * 10 + "px");
+    			if (dirty & /*pages*/ 32) {
+    				set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109126,20 +109137,20 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(414:8) {#if page.endsWith(\\\"/\\\")}",
+    		source: "(438:8) {#if page.endsWith(\\\"/\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (413:6) {#each pages as page}
+    // (437:6) {#each pages as page}
     function create_each_block_1(ctx) {
     	let show_if;
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (show_if == null || dirty & /*pages*/ 16) show_if = !!/*page*/ ctx[18].endsWith("/");
+    		if (show_if == null || dirty & /*pages*/ 32) show_if = !!/*page*/ ctx[19].endsWith("/");
     		if (show_if) return create_if_block;
     		return create_else_block;
     	}
@@ -109179,18 +109190,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(413:6) {#each pages as page}",
+    		source: "(437:6) {#each pages as page}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (438:6) {#each TOC as header}
+    // (462:6) {#each TOC as header}
     function create_each_block(ctx) {
     	let li;
     	let a;
-    	let t_value = /*header*/ ctx[15].text + "";
+    	let t_value = /*header*/ ctx[16].text + "";
     	let t;
     	let a_href_value;
 
@@ -109199,11 +109210,11 @@ var app = (function () {
     			li = element("li");
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[15].id);
-    			add_location(a, file, 438, 61, 20349);
-    			set_style(li, "margin-left", (/*header*/ ctx[15].level - 1) * 10 + "px");
-    			attr_dev(li, "class", "svelte-1tyrdv8");
-    			add_location(li, file, 438, 8, 20296);
+    			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
+    			add_location(a, file, 462, 61, 21608);
+    			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
+    			attr_dev(li, "class", "svelte-txdonr");
+    			add_location(li, file, 462, 8, 21555);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109211,14 +109222,14 @@ var app = (function () {
     			append_dev(a, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*TOC*/ 1 && t_value !== (t_value = /*header*/ ctx[15].text + "")) set_data_dev(t, t_value);
+    			if (dirty & /*TOC*/ 1 && t_value !== (t_value = /*header*/ ctx[16].text + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*TOC*/ 1 && a_href_value !== (a_href_value = "#" + /*header*/ ctx[15].id)) {
+    			if (dirty & /*TOC*/ 1 && a_href_value !== (a_href_value = "#" + /*header*/ ctx[16].id)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
     			if (dirty & /*TOC*/ 1) {
-    				set_style(li, "margin-left", (/*header*/ ctx[15].level - 1) * 10 + "px");
+    				set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109230,7 +109241,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(438:6) {#each TOC as header}",
+    		source: "(462:6) {#each TOC as header}",
     		ctx
     	});
 
@@ -109258,7 +109269,7 @@ var app = (function () {
     	let div4_class_value;
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*pages*/ ctx[4];
+    	let each_value_1 = /*pages*/ ctx[5];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -109303,30 +109314,30 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(button0, "class", "sidebarButton svelte-1tyrdv8");
-    			add_location(button0, file, 404, 2, 19132);
-    			attr_dev(button1, "class", "navButton svelte-1tyrdv8");
-    			add_location(button1, file, 405, 2, 19221);
-    			attr_dev(header, "class", "svelte-1tyrdv8");
-    			add_location(header, file, 403, 0, 19121);
+    			attr_dev(button0, "class", "sidebarButton svelte-txdonr");
+    			add_location(button0, file, 428, 2, 20351);
+    			attr_dev(button1, "class", "navButton svelte-txdonr");
+    			add_location(button1, file, 429, 2, 20440);
+    			attr_dev(header, "class", "svelte-txdonr");
+    			add_location(header, file, 427, 0, 20340);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
-    			: "") + " svelte-1tyrdv8");
+    			: "") + " svelte-txdonr");
 
-    			add_location(div0, file, 407, 0, 19312);
-    			attr_dev(div1, "class", "list svelte-1tyrdv8");
-    			add_location(div1, file, 411, 4, 19526);
-    			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-1tyrdv8");
-    			add_location(div2, file, 410, 2, 19466);
-    			attr_dev(div3, "class", "content svelte-1tyrdv8");
-    			add_location(div3, file, 432, 2, 20142);
-    			attr_dev(ul, "class", "svelte-1tyrdv8");
-    			add_location(ul, file, 436, 4, 20255);
-    			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-1tyrdv8");
-    			add_location(div4, file, 435, 2, 20203);
-    			attr_dev(main, "class", "svelte-1tyrdv8");
-    			add_location(main, file, 409, 0, 19457);
+    			add_location(div0, file, 431, 0, 20531);
+    			attr_dev(div1, "class", "list svelte-txdonr");
+    			add_location(div1, file, 435, 4, 20745);
+    			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-txdonr");
+    			add_location(div2, file, 434, 2, 20685);
+    			attr_dev(div3, "class", "content svelte-txdonr");
+    			add_location(div3, file, 456, 2, 21401);
+    			attr_dev(ul, "class", "svelte-txdonr");
+    			add_location(ul, file, 460, 4, 21514);
+    			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-txdonr");
+    			add_location(div4, file, 459, 2, 21462);
+    			attr_dev(main, "class", "svelte-txdonr");
+    			add_location(main, file, 433, 0, 20676);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109349,7 +109360,7 @@ var app = (function () {
 
     			append_dev(main, t5);
     			append_dev(main, div3);
-    			div3.innerHTML = /*markedHTMLOut*/ ctx[3];
+    			div3.innerHTML = /*markedHTMLOut*/ ctx[4];
     			append_dev(main, t6);
     			append_dev(main, div4);
     			append_dev(div4, ul);
@@ -109360,9 +109371,9 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*click_handler*/ ctx[6], false, false, false),
-    					listen_dev(button1, "click", /*click_handler_1*/ ctx[7], false, false, false),
-    					listen_dev(div0, "click", /*click_handler_2*/ ctx[8], false, false, false)
+    					listen_dev(button0, "click", /*click_handler*/ ctx[7], false, false, false),
+    					listen_dev(button1, "click", /*click_handler_1*/ ctx[8], false, false, false),
+    					listen_dev(div0, "click", /*click_handler_2*/ ctx[9], false, false, false)
     				];
 
     				mounted = true;
@@ -109371,12 +109382,12 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*sidebarIsActive, TOCIsActive*/ 6 && div0_class_value !== (div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
-    			: "") + " svelte-1tyrdv8")) {
+    			: "") + " svelte-txdonr")) {
     				attr_dev(div0, "class", div0_class_value);
     			}
 
-    			if (dirty & /*pages, updatePageContent*/ 48) {
-    				each_value_1 = /*pages*/ ctx[4];
+    			if (dirty & /*pages, lastPage, updatePageContent*/ 104) {
+    				each_value_1 = /*pages*/ ctx[5];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -109399,11 +109410,11 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*sidebarIsActive*/ 4 && div2_class_value !== (div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-1tyrdv8")) {
+    			if (dirty & /*sidebarIsActive*/ 4 && div2_class_value !== (div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-txdonr")) {
     				attr_dev(div2, "class", div2_class_value);
     			}
 
-    			if (dirty & /*markedHTMLOut*/ 8) div3.innerHTML = /*markedHTMLOut*/ ctx[3];
+    			if (dirty & /*markedHTMLOut*/ 16) div3.innerHTML = /*markedHTMLOut*/ ctx[4];
     			if (dirty & /*TOC*/ 1) {
     				each_value = /*TOC*/ ctx[0];
     				validate_each_argument(each_value);
@@ -109428,7 +109439,7 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*TOCIsActive*/ 2 && div4_class_value !== (div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-1tyrdv8")) {
+    			if (dirty & /*TOCIsActive*/ 2 && div4_class_value !== (div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-txdonr")) {
     				attr_dev(div4, "class", div4_class_value);
     			}
     		},
@@ -109533,6 +109544,7 @@ var app = (function () {
     	let TOC = [];
     	let TOCIsActive = false;
     	let sidebarIsActive = false;
+    	let lastPage = localStorage.getItem("lastPage");
 
     	const renderer = {
     		// @ts-ignore
@@ -109815,9 +109827,10 @@ var app = (function () {
 
     	const updatePageContent = contentName => __awaiter(void 0, void 0, void 0, function* () {
     		localStorage.setItem("lastPage", contentName);
+    		$$invalidate(3, lastPage = contentName);
     		tables.length = 0;
     		$$invalidate(0, TOC.length = 0, TOC);
-    		if (window.location.hostname === "localhost") $$invalidate(3, markedHTMLOut = marked(yield (yield fetch("./docs/" + contentName + ".md")).text())); else $$invalidate(3, markedHTMLOut = marked(yield (yield fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
+    		if (window.location.hostname === "localhost") $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("./docs/" + contentName + ".md")).text())); else $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
     		yield tick();
 
     		if (tables.length > 10) {
@@ -109834,7 +109847,7 @@ var app = (function () {
     					tableEditCopyButton.innerText = "edit table";
     					const tableDisplayEl = document.createElement("div");
 
-    					tableToggleButton.onclick = () => {
+    					const toggleTableVisibilityFn = () => {
     						tableToggleButton.innerText = (tableDisplayEl.style.display === "none"
     						? "hide"
     						: "show") + " table";
@@ -109848,12 +109861,13 @@ var app = (function () {
     						: "none";
     					};
 
+    					tableToggleButton.onclick = toggleTableVisibilityFn;
     					tableBaseEl.appendChild(tableToggleButton);
     					tableBaseEl.appendChild(tableEditCopyButton);
     					tableBaseEl.appendChild(tableDisplayEl);
     					const htable = new Handsontable(tableDisplayEl, tableConfig);
 
-    					tableEditCopyButton.onclick = () => {
+    					const enableEditFn = () => {
     						htable.updateSettings({
     							readOnly: false,
     							contextMenu: true,
@@ -109863,10 +109877,20 @@ var app = (function () {
 
     						tableEditCopyButton.innerText = "copy as markdown";
 
+    						tableToggleButton.onclick = () => {
+    							htable.updateSettings({ readOnly: true, contextMenu: false });
+    							tableToggleButton.onclick = toggleTableVisibilityFn;
+    							tableToggleButton.innerText = "hide table";
+    						};
+
+    						tableToggleButton.innerText = "stop editing";
+
     						tableEditCopyButton.onclick = () => {
     							copyToClipboard(serializeHOTable(htable));
     						};
     					};
+
+    					tableEditCopyButton.onclick = enableEditFn;
     				};
 
     				document.getElementById(`HOTable-${idx}`).appendChild(renderBtn);
@@ -109880,7 +109904,7 @@ var app = (function () {
     				tableEditCopyButton.innerText = "edit table";
     				const tableDisplayEl = document.createElement("div");
 
-    				tableToggleButton.onclick = () => {
+    				const toggleTableVisibilityFn = () => {
     					tableToggleButton.innerText = (tableDisplayEl.style.display === "none"
     					? "hide"
     					: "show") + " table";
@@ -109894,12 +109918,13 @@ var app = (function () {
     					: "none";
     				};
 
+    				tableToggleButton.onclick = toggleTableVisibilityFn;
     				tableBaseEl.appendChild(tableToggleButton);
     				tableBaseEl.appendChild(tableEditCopyButton);
     				tableBaseEl.appendChild(tableDisplayEl);
     				const htable = new Handsontable(tableDisplayEl, tableConfig);
 
-    				tableEditCopyButton.onclick = () => {
+    				const enableEditFn = () => {
     					htable.updateSettings({
     						readOnly: false,
     						contextMenu: true,
@@ -109909,10 +109934,20 @@ var app = (function () {
 
     					tableEditCopyButton.innerText = "copy as markdown";
 
+    					tableToggleButton.onclick = () => {
+    						htable.updateSettings({ readOnly: true, contextMenu: false });
+    						tableToggleButton.onclick = toggleTableVisibilityFn;
+    						tableToggleButton.innerText = "hide table";
+    					};
+
+    					tableToggleButton.innerText = "stop editing";
+
     					tableEditCopyButton.onclick = () => {
     						copyToClipboard(serializeHOTable(htable));
     					};
     				};
+
+    				tableEditCopyButton.onclick = enableEditFn;
     			}
     		}
 
@@ -109954,7 +109989,7 @@ var app = (function () {
     				lastIndentLevel = thisIndentLevel;
     			}
 
-    			$$invalidate(4, pages = [...pages, pathStack.join("") + line.trim()]);
+    			$$invalidate(5, pages = [...pages, pathStack.join("") + line.trim()]);
 
     			if (line.endsWith("/")) {
     				pathStack.push(line.trim());
@@ -109991,6 +110026,7 @@ var app = (function () {
     		TOC,
     		TOCIsActive,
     		sidebarIsActive,
+    		lastPage,
     		renderer,
     		serializeHOTable,
     		markedHTMLOut,
@@ -110003,8 +110039,9 @@ var app = (function () {
     		if ("TOC" in $$props) $$invalidate(0, TOC = $$props.TOC);
     		if ("TOCIsActive" in $$props) $$invalidate(1, TOCIsActive = $$props.TOCIsActive);
     		if ("sidebarIsActive" in $$props) $$invalidate(2, sidebarIsActive = $$props.sidebarIsActive);
-    		if ("markedHTMLOut" in $$props) $$invalidate(3, markedHTMLOut = $$props.markedHTMLOut);
-    		if ("pages" in $$props) $$invalidate(4, pages = $$props.pages);
+    		if ("lastPage" in $$props) $$invalidate(3, lastPage = $$props.lastPage);
+    		if ("markedHTMLOut" in $$props) $$invalidate(4, markedHTMLOut = $$props.markedHTMLOut);
+    		if ("pages" in $$props) $$invalidate(5, pages = $$props.pages);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -110015,6 +110052,7 @@ var app = (function () {
     		TOC,
     		TOCIsActive,
     		sidebarIsActive,
+    		lastPage,
     		markedHTMLOut,
     		pages,
     		updatePageContent,

@@ -32,6 +32,9 @@
     } else {
       td.innerText = "NaN"
     }
+    if (cellProperties.readOnly) {
+      td.className = "htDimmed";
+    }
     return td;
   })
 
@@ -322,6 +325,7 @@
               })
               tableToggleButton.onclick = toggleTableVisibilityFn;
               tableToggleButton.innerText = "hide table";
+              tableEditCopyButton.innerText = "edit table";
             }
             tableToggleButton.innerText = "stop editing";
             tableEditCopyButton.onclick = () => {
@@ -366,6 +370,7 @@
             });
             tableToggleButton.onclick = toggleTableVisibilityFn;
             tableToggleButton.innerText = "hide table";
+            tableEditCopyButton.innerText = "edit table";
           }
           tableToggleButton.innerText = "stop editing";
           tableEditCopyButton.onclick = () => {

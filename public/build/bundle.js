@@ -109027,7 +109027,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (445:8) {:else}
+    // (450:8) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "";
@@ -109052,7 +109052,7 @@ var app = (function () {
     			: "") + " svelte-txdonr");
 
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 445, 10, 21066);
+    			add_location(div, file, 450, 10, 21283);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109089,14 +109089,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(445:8) {:else}",
+    		source: "(450:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (438:8) {#if page.endsWith("/")}
+    // (443:8) {#if page.endsWith("/")}
     function create_if_block(ctx) {
     	let div;
     	let span;
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 442, 10, 20960);
+    			add_location(span, file, 447, 10, 21177);
     			attr_dev(div, "class", "nav-dir-header svelte-txdonr");
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 438, 8, 20833);
+    			add_location(div, file, 443, 8, 21050);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109137,14 +109137,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(438:8) {#if page.endsWith(\\\"/\\\")}",
+    		source: "(443:8) {#if page.endsWith(\\\"/\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (437:6) {#each pages as page}
+    // (442:6) {#each pages as page}
     function create_each_block_1(ctx) {
     	let show_if;
     	let if_block_anchor;
@@ -109190,14 +109190,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(437:6) {#each pages as page}",
+    		source: "(442:6) {#each pages as page}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (462:6) {#each TOC as header}
+    // (467:6) {#each TOC as header}
     function create_each_block(ctx) {
     	let li;
     	let a;
@@ -109211,10 +109211,10 @@ var app = (function () {
     			a = element("a");
     			t = text(t_value);
     			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
-    			add_location(a, file, 462, 61, 21608);
+    			add_location(a, file, 467, 61, 21825);
     			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
     			attr_dev(li, "class", "svelte-txdonr");
-    			add_location(li, file, 462, 8, 21555);
+    			add_location(li, file, 467, 8, 21772);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109241,7 +109241,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(462:6) {#each TOC as header}",
+    		source: "(467:6) {#each TOC as header}",
     		ctx
     	});
 
@@ -109315,29 +109315,29 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "class", "sidebarButton svelte-txdonr");
-    			add_location(button0, file, 428, 2, 20351);
+    			add_location(button0, file, 433, 2, 20568);
     			attr_dev(button1, "class", "navButton svelte-txdonr");
-    			add_location(button1, file, 429, 2, 20440);
+    			add_location(button1, file, 434, 2, 20657);
     			attr_dev(header, "class", "svelte-txdonr");
-    			add_location(header, file, 427, 0, 20340);
+    			add_location(header, file, 432, 0, 20557);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
     			: "") + " svelte-txdonr");
 
-    			add_location(div0, file, 431, 0, 20531);
+    			add_location(div0, file, 436, 0, 20748);
     			attr_dev(div1, "class", "list svelte-txdonr");
-    			add_location(div1, file, 435, 4, 20745);
+    			add_location(div1, file, 440, 4, 20962);
     			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-txdonr");
-    			add_location(div2, file, 434, 2, 20685);
+    			add_location(div2, file, 439, 2, 20902);
     			attr_dev(div3, "class", "content svelte-txdonr");
-    			add_location(div3, file, 456, 2, 21401);
+    			add_location(div3, file, 461, 2, 21618);
     			attr_dev(ul, "class", "svelte-txdonr");
-    			add_location(ul, file, 460, 4, 21514);
+    			add_location(ul, file, 465, 4, 21731);
     			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-txdonr");
-    			add_location(div4, file, 459, 2, 21462);
+    			add_location(div4, file, 464, 2, 21679);
     			attr_dev(main, "class", "svelte-txdonr");
-    			add_location(main, file, 433, 0, 20676);
+    			add_location(main, file, 438, 0, 20893);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109535,6 +109535,10 @@ var app = (function () {
     			td.innerText = "0x" + value.toString(16).toUpperCase();
     		} else {
     			td.innerText = "NaN";
+    		}
+
+    		if (cellProperties.readOnly) {
+    			td.className = "htDimmed";
     		}
 
     		return td;
@@ -109881,6 +109885,7 @@ var app = (function () {
     							htable.updateSettings({ readOnly: true, contextMenu: false });
     							tableToggleButton.onclick = toggleTableVisibilityFn;
     							tableToggleButton.innerText = "hide table";
+    							tableEditCopyButton.innerText = "edit table";
     						};
 
     						tableToggleButton.innerText = "stop editing";
@@ -109938,6 +109943,7 @@ var app = (function () {
     						htable.updateSettings({ readOnly: true, contextMenu: false });
     						tableToggleButton.onclick = toggleTableVisibilityFn;
     						tableToggleButton.innerText = "hide table";
+    						tableEditCopyButton.innerText = "edit table";
     					};
 
     					tableToggleButton.innerText = "stop editing";

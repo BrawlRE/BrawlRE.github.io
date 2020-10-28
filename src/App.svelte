@@ -37,6 +37,8 @@
 
   const tables = [];
   let TOC = [];
+  let TOCIsActive = false;
+  let sidebarIsActive = false;
 
   const renderer: marked.Renderer = {
     // @ts-ignore
@@ -399,11 +401,14 @@
   })();
 </script>
 
-<!-- svelte-ignore a11y-no-onchange -->
-
+<header>
+  <button class="sidebarButton" on:click={() => sidebarIsActive = true}> pages </button>
+  <button class="navButton" on:click={() => TOCIsActive = true}> content </button>
+</header>
+<div class="offToggle {sidebarIsActive || TOCIsActive ? 'active' : ''}" on:click={() => {TOCIsActive = false; sidebarIsActive = false;}}></div>
 
 <main>
-  <div class="sidebar">
+  <div class="sidebar {sidebarIsActive ? 'active' : ''}">
     <div class="list">
       {#each pages as page}
         {#if page.endsWith("/")}
@@ -428,7 +433,7 @@
   <div class="content">
       {@html markedHTMLOut}
   </div>
-  <div class="TOC">
+  <div class="TOC {TOCIsActive ? 'active' : ''}">
     <ul>
       {#each TOC as header}
         <li style="margin-left: {(header.level - 1) * 10}px"><a href="#{header.id}">{header.text}</a></li>
@@ -473,7 +478,6 @@ main > .sidebar > .list {
 }
 
 main > .content {
-  min-width: 500px;
   height: 100vh;
   padding: 10px 20px;
   overflow-y: scroll;
@@ -520,13 +524,82 @@ main > .TOC > ul > li {
   margin: auto; */
 }
 
+header {
+  display: none;
+}
+
 @media only screen and (max-width: 1000px) {
   main > .sidebar {
-    display: none;
+    display: block;
+    position: fixed;
+    background-color: #FFF;
+    width: 250px;
+    left: -250px;
+    z-index: 1002;
+    transition: left .3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  main > .sidebar.active {
+    left: 0px;
+    transition: left .3s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   main > .TOC {
-    display: none;
+    display: block;
+    position: fixed;
+    background-color: #FFF;
+    width: 250px;
+    right: -250px;
+    z-index: 1002;
+    transition: right .3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  main > .TOC.active {
+    right: 0px;
+    transition: right .3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .offToggle {
+    position: fixed;
+    pointer-events: none;
+    background-color: #0000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001;
+    transition: background-color .3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .offToggle.active {
+    background-color: #0003;
+    pointer-events: auto;
+    transition: background-color .3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  /* kinda hacky but it works ahahah */
+  header {
+    display: block;
+    position: fixed;
+    height: 65px;
+    padding: 20px;
+    width: 100vw;
+    background-color: #FFF;
+    box-shadow: 0 1px 3px #0004;
+    z-index: 1000
+  }
+
+  header > .sidebarButton {
+    float: left;
+  }
+
+
+
+  header > .navButton {
+    float: right;
+  }
+
+  main > .content {
+    margin-top: 65px;
+    height: calc(100vh - 65px);
   }
 }
 </style>

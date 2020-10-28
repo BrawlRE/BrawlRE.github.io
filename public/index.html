@@ -4,15 +4,13 @@
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-	<title>Svelte app</title>
-
-	<link rel='icon' type='image/png' href='/public/favicon.png'>
-	<link rel='stylesheet' href='/public/global.css'>
-	<link rel='stylesheet' href='/public/markdown.css'>
-	<link rel='stylesheet' href='/public/build/bundle.css'>
-	<link rel='stylesheet' href='/public/build/externalBundle.css'>
-
-	<script defer src='/public/build/bundle.js'></script>
+	<title>Smash RE Docs</title>
+	<!-- <link rel="icon" type="image/png" href="./favicon.png">
+	<link rel="stylesheet" href="./global.css">
+	<link rel='stylesheet' href='./markdown.css'>
+	<link rel='stylesheet' href='./build/bundle.css'>
+	<link rel='stylesheet' href='./build/externalBundle.css'>
+	<script defer src='./build/bundle.js'></script> -->
 
 	<!-- <script src="node_modules/handsontable/dist/handsontable.full.min.js"></script>
 	<link href="node_modules/handsontable/dist/handsontable.full.min.css" rel="stylesheet" media="screen"> -->
@@ -20,5 +18,28 @@
 </head>
 
 <body>
+
+	<script>
+		(() => {
+			let root;
+			if (window.location.hostname === "localhost") {
+				root = ".";
+			} else {
+				root = "/public";
+			}
+
+			document.head.insertAdjacentHTML("beforeend",
+				`<link rel="icon" type="image/png" href="${root}/favicon.png">\n`
+				+ `<link rel="stylesheet" href="${root}/global.css">\n`
+				+ `<link rel='stylesheet' href='${root}/markdown.css'>\n`
+				+ `<link rel='stylesheet' href='${root}/build/bundle.css'>\n`
+				+ `<link rel='stylesheet' href='${root}/build/externalBundle.css'>\n`
+			)
+			const bundle = document.createElement("script");
+			bundle.defer = true;
+			bundle.src = `${root}/build/bundle.js`;
+			document.head.appendChild(bundle);
+		})()
+	</script>
 </body>
 </html>

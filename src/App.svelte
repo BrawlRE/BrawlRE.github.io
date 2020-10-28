@@ -61,8 +61,8 @@
         height: 'auto',
         readOnly: true,
         modifyColWidth: (width, col) => {
-          if (width > 400) {
-            return 400
+          if (width > 300) {
+            return 300
           }
           return width;
         }
@@ -142,8 +142,8 @@
           }
           case "data": {
             const rowData = line.split("|").map(d => d.trim().replace(/\\n/g, "\n"));
-            const reg = /^<\$(?:w(?<width>\d+))?\s?(?:h(?<height>\d+))?\s?(?:s"(?<styling>.+?)")?\>/gm;
             for (const [col, d] of rowData.entries()) {
+              const reg = /^<\$(?:w(?<width>\d+))?\s?(?:h(?<height>\d+))?\s?(?:s"(?<styling>.+?)")?\>/gm;
               const results = reg.exec(d);
               if (!results) continue;
               if (results.groups.height || results.groups.width) {

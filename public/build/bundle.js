@@ -109052,7 +109052,7 @@ var app = (function () {
     			: "") + " svelte-6l43g3");
 
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 458, 10, 21814);
+    			add_location(div, file, 458, 10, 21818);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 455, 10, 21708);
+    			add_location(span, file, 455, 10, 21712);
     			attr_dev(div, "class", "nav-dir-header svelte-6l43g3");
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 451, 8, 21581);
+    			add_location(div, file, 451, 8, 21585);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109211,10 +109211,10 @@ var app = (function () {
     			a = element("a");
     			t = text(t_value);
     			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
-    			add_location(a, file, 475, 61, 22356);
+    			add_location(a, file, 475, 61, 22360);
     			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
     			attr_dev(li, "class", "svelte-6l43g3");
-    			add_location(li, file, 475, 8, 22303);
+    			add_location(li, file, 475, 8, 22307);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109315,29 +109315,29 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "class", "sidebarButton svelte-6l43g3");
-    			add_location(button0, file, 441, 2, 21099);
+    			add_location(button0, file, 441, 2, 21103);
     			attr_dev(button1, "class", "navButton svelte-6l43g3");
-    			add_location(button1, file, 442, 2, 21188);
+    			add_location(button1, file, 442, 2, 21192);
     			attr_dev(header, "class", "svelte-6l43g3");
-    			add_location(header, file, 440, 0, 21088);
+    			add_location(header, file, 440, 0, 21092);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
     			: "") + " svelte-6l43g3");
 
-    			add_location(div0, file, 444, 0, 21279);
+    			add_location(div0, file, 444, 0, 21283);
     			attr_dev(div1, "class", "list svelte-6l43g3");
-    			add_location(div1, file, 448, 4, 21493);
+    			add_location(div1, file, 448, 4, 21497);
     			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div2, file, 447, 2, 21433);
+    			add_location(div2, file, 447, 2, 21437);
     			attr_dev(div3, "class", "content svelte-6l43g3");
-    			add_location(div3, file, 469, 2, 22149);
+    			add_location(div3, file, 469, 2, 22153);
     			attr_dev(ul, "class", "svelte-6l43g3");
-    			add_location(ul, file, 473, 4, 22262);
+    			add_location(ul, file, 473, 4, 22266);
     			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div4, file, 472, 2, 22210);
+    			add_location(div4, file, 472, 2, 22214);
     			attr_dev(main, "class", "svelte-6l43g3");
-    			add_location(main, file, 446, 0, 21424);
+    			add_location(main, file, 446, 0, 21428);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109567,8 +109567,8 @@ var app = (function () {
     				height: "auto",
     				readOnly: true,
     				modifyColWidth: (width, col) => {
-    					if (width > 400) {
-    						return 400;
+    					if (width > 300) {
+    						return 300;
     					}
 
     					return width;
@@ -109664,9 +109664,9 @@ var app = (function () {
     					case "data":
     						{
     							const rowData = line.split("|").map(d => d.trim().replace(/\\n/g, "\n"));
-    							const reg = /^<\$(?:w(?<width>\d+))?\s?(?:h(?<height>\d+))?\s?(?:s"(?<styling>.+?)")?\>/gm;
 
     							for (const [col, d] of rowData.entries()) {
+    								const reg = /^<\$(?:w(?<width>\d+))?\s?(?:h(?<height>\d+))?\s?(?:s"(?<styling>.+?)")?\>/gm;
     								const results = reg.exec(d);
     								if (!results) continue;
 

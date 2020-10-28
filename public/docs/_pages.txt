@@ -9,6 +9,7 @@ Brawl/
   Effect_Pac_ids
   Enemies
   Event_Match_Files
+  Events
   Kirby_Hat_Variables
 Tools/
   TestPage

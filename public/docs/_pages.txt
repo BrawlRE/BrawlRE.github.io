@@ -1,4 +1,8 @@
 Brawl/
+  Variables/
+    IC_Constants
+    IC_Memory_Map
+    Overview
   Actions
   Article_Variables
   Articles
@@ -11,6 +15,8 @@ Brawl/
   Event_Match_Files
   Events
   Fighter_Module_Constants
+  Graphical_Effects
+  Hitbox_Flags
   Kirby_Hat_Variables
 Tools/
   TestPage

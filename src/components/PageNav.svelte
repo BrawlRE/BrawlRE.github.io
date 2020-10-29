@@ -54,7 +54,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   transition: max-height .3s cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
   background-color: #FFF;
-  padding-left: 10px;
+  padding-left: 20px;
   position: relative;
 }
 
@@ -108,7 +108,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   display: flex;
   align-items: center;
   height: 25px;
-  padding-left: 5px;
+  padding-left: 10px;
   position: relative;
 }
 

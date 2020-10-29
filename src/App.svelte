@@ -393,7 +393,7 @@
 
     for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5, h6")) {
       heading.addEventListener("click", () => {
-        copyToClipboard(`${window.location.origin}?page=${contentName}&location=${heading.id}`);
+        copyToClipboard(`${window.location.origin}${window.location.pathname}?page=${contentName}&location=${heading.id}`);
       })
     }
   }

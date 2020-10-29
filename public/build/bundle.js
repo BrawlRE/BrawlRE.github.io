@@ -109052,7 +109052,7 @@ var app = (function () {
     			: "") + " svelte-6l43g3");
 
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 460, 10, 21952);
+    			add_location(div, file, 460, 10, 21979);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 457, 10, 21846);
+    			add_location(span, file, 457, 10, 21873);
     			attr_dev(div, "class", "nav-dir-header svelte-6l43g3");
     			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 453, 8, 21719);
+    			add_location(div, file, 453, 8, 21746);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109211,10 +109211,10 @@ var app = (function () {
     			a = element("a");
     			t = text(t_value);
     			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
-    			add_location(a, file, 477, 61, 22494);
+    			add_location(a, file, 477, 61, 22521);
     			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
     			attr_dev(li, "class", "svelte-6l43g3");
-    			add_location(li, file, 477, 8, 22441);
+    			add_location(li, file, 477, 8, 22468);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109315,29 +109315,29 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "class", "sidebarButton svelte-6l43g3");
-    			add_location(button0, file, 443, 2, 21237);
+    			add_location(button0, file, 443, 2, 21264);
     			attr_dev(button1, "class", "navButton svelte-6l43g3");
-    			add_location(button1, file, 444, 2, 21326);
+    			add_location(button1, file, 444, 2, 21353);
     			attr_dev(header, "class", "svelte-6l43g3");
-    			add_location(header, file, 442, 0, 21226);
+    			add_location(header, file, 442, 0, 21253);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
     			: "") + " svelte-6l43g3");
 
-    			add_location(div0, file, 446, 0, 21417);
+    			add_location(div0, file, 446, 0, 21444);
     			attr_dev(div1, "class", "list svelte-6l43g3");
-    			add_location(div1, file, 450, 4, 21631);
+    			add_location(div1, file, 450, 4, 21658);
     			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div2, file, 449, 2, 21571);
+    			add_location(div2, file, 449, 2, 21598);
     			attr_dev(div3, "class", "content svelte-6l43g3");
-    			add_location(div3, file, 471, 2, 22287);
+    			add_location(div3, file, 471, 2, 22314);
     			attr_dev(ul, "class", "svelte-6l43g3");
-    			add_location(ul, file, 475, 4, 22400);
+    			add_location(ul, file, 475, 4, 22427);
     			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div4, file, 474, 2, 22348);
+    			add_location(div4, file, 474, 2, 22375);
     			attr_dev(main, "class", "svelte-6l43g3");
-    			add_location(main, file, 448, 0, 21562);
+    			add_location(main, file, 448, 0, 21589);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109964,7 +109964,7 @@ var app = (function () {
 
     		for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5, h6")) {
     			heading.addEventListener("click", () => {
-    				copyToClipboard(`${window.location.origin}?page=${contentName}&location=${heading.id}`);
+    				copyToClipboard(`${window.location.origin}${window.location.pathname}?page=${contentName}&location=${heading.id}`);
     			});
     		}
     	});

@@ -108,7 +108,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   display: flex;
   align-items: center;
   height: 25px;
-  padding-left: 5px;
+  padding-left: 10px;
   position: relative;
 }
 

@@ -532,7 +532,7 @@ main > .sidebar {
   width: 250px;
   height: 100vh;
   box-shadow: inset -2px 0 2px #0004;
-  background-color: #222;
+  background-color: #FFF;
   flex-shrink: 0;
   overflow-y: scroll;
   padding-left: 10px;

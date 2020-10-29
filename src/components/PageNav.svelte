@@ -28,7 +28,7 @@ const getChildrenCount = (pd: pageDirectory) => {
       class="nav-link {(lastPage === pageRoot + child) ? "current" : ""}"
       on:click={(evt) => {evt.stopPropagation(); clickEvt(pageRoot + child)}}
     >
-      {child}
+      {child.replace(/_/g, " ")}
     </div>
   {:else}
     <div
@@ -36,7 +36,7 @@ const getChildrenCount = (pd: pageDirectory) => {
       on:click={function(evt) {evt.stopPropagation(); this.classList.toggle("active")}}
     >
       <span>{child.label}</span>
-      <div class="nav-dir-links" style="max-height: {getChildrenCount(child) * 30}px">
+      <div class="nav-dir-links" style="max-height: {getChildrenCount(child) * 25}px">
         <svelte:self
           pageDirStructure={child}
           pageRoot={pageRoot + child.label}
@@ -54,7 +54,18 @@ const getChildrenCount = (pd: pageDirectory) => {
   transition: max-height .3s cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
   background-color: #FFF;
-  margin-left: 10px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.nav-dir-links::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  left: 5px;
+  background-color: #0001;
 }
 
 :global(.nav-dir-header:not(.active) > .nav-dir-links) {
@@ -62,39 +73,43 @@ const getChildrenCount = (pd: pageDirectory) => {
   pointer-events: none;
 }
 
-.nav-dir-header {
+/* .nav-dir-header {
   background-color: #222;
-}
+} */
 
 .nav-dir-header > span {
   display: block;
   position: relative;
   width: 100%;
-  height: 30px;
-  line-height: 30px;
+  height: 25px;
+  line-height: 25px;
   font-weight: bold;
-  color: #FFF;
+  color: #000;
+  user-select: none;
 }
 
-.nav-dir-header > span::after {
-  content: "<";
-  display: block;
-  position: absolute;
-  right: 10px;
-  top: 0;
+.nav-dir-header > span:hover {
+  background-color: #0001;
+}
+
+.nav-dir-header > span::before {
+  display: inline-block;
+  content: "›";
+  padding: 0 5px;
   transform: rotate(0deg);
-  transition: transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+  /* transition: transform .3s cubic-bezier(0.19, 1, 0.22, 1); */
 }
 
-.nav-dir-header.active > span::after {
-  transform: rotate(-90deg);
+.nav-dir-header.active > span::before {
+  transform: rotate(90deg);
 }
 
 .nav-link {
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 25px;
   padding-left: 5px;
+  position: relative;
 }
 
 .nav-link:hover {
@@ -104,7 +119,6 @@ const getChildrenCount = (pd: pageDirectory) => {
 
 .nav-link.current {
   pointer-events: none;
-  position: relative;
   background-color: #0001;
   padding-left: 10px;
 }
@@ -115,7 +129,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   right: 100%;
   height: 100%;
   width: 5px;
-  margin-right: -5px;
+  /* margin-right: -5px; */
   background-color: red;
 }
 

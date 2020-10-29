@@ -308,6 +308,7 @@
       markedHTMLOut = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
 
     for (const src of pageScripts) {
+      console.log(src);
       eval(await (await fetch(src)).text());
     }
 

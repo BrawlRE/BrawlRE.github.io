@@ -109027,7 +109027,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (477:8) {:else}
+    // (478:8) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t0_value = /*page*/ ctx[20].split("/")[/*page*/ ctx[20].split("/").length - 1] + "";
@@ -109052,7 +109052,7 @@ var app = (function () {
     			: "") + " svelte-6l43g3");
 
     			set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 477, 10, 22734);
+    			add_location(div, file, 478, 10, 22761);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109089,14 +109089,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(477:8) {:else}",
+    		source: "(478:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (470:8) {#if page.endsWith("/")}
+    // (471:8) {#if page.endsWith("/")}
     function create_if_block(ctx) {
     	let div;
     	let span;
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 474, 10, 22628);
+    			add_location(span, file, 475, 10, 22655);
     			attr_dev(div, "class", "nav-dir-header svelte-6l43g3");
     			set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 470, 8, 22501);
+    			add_location(div, file, 471, 8, 22528);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109137,14 +109137,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(470:8) {#if page.endsWith(\\\"/\\\")}",
+    		source: "(471:8) {#if page.endsWith(\\\"/\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (469:6) {#each pages as page}
+    // (470:6) {#each pages as page}
     function create_each_block_1(ctx) {
     	let show_if;
     	let if_block_anchor;
@@ -109190,14 +109190,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(469:6) {#each pages as page}",
+    		source: "(470:6) {#each pages as page}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (494:6) {#each TOC as header}
+    // (495:6) {#each TOC as header}
     function create_each_block(ctx) {
     	let li;
     	let a;
@@ -109211,10 +109211,10 @@ var app = (function () {
     			a = element("a");
     			t = text(t_value);
     			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[17].id);
-    			add_location(a, file, 494, 61, 23276);
+    			add_location(a, file, 495, 61, 23303);
     			set_style(li, "margin-left", (/*header*/ ctx[17].level - 1) * 10 + "px");
     			attr_dev(li, "class", "svelte-6l43g3");
-    			add_location(li, file, 494, 8, 23223);
+    			add_location(li, file, 495, 8, 23250);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109241,7 +109241,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(494:6) {#each TOC as header}",
+    		source: "(495:6) {#each TOC as header}",
     		ctx
     	});
 
@@ -109315,29 +109315,29 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "class", "sidebarButton svelte-6l43g3");
-    			add_location(button0, file, 460, 2, 22019);
+    			add_location(button0, file, 461, 2, 22046);
     			attr_dev(button1, "class", "navButton svelte-6l43g3");
-    			add_location(button1, file, 461, 2, 22108);
+    			add_location(button1, file, 462, 2, 22135);
     			attr_dev(header, "class", "svelte-6l43g3");
-    			add_location(header, file, 459, 0, 22008);
+    			add_location(header, file, 460, 0, 22035);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
     			: "") + " svelte-6l43g3");
 
-    			add_location(div0, file, 463, 0, 22199);
+    			add_location(div0, file, 464, 0, 22226);
     			attr_dev(div1, "class", "list svelte-6l43g3");
-    			add_location(div1, file, 467, 4, 22413);
+    			add_location(div1, file, 468, 4, 22440);
     			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div2, file, 466, 2, 22353);
+    			add_location(div2, file, 467, 2, 22380);
     			attr_dev(div3, "class", "content svelte-6l43g3");
-    			add_location(div3, file, 488, 2, 23069);
+    			add_location(div3, file, 489, 2, 23096);
     			attr_dev(ul, "class", "svelte-6l43g3");
-    			add_location(ul, file, 492, 4, 23182);
+    			add_location(ul, file, 493, 4, 23209);
     			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div4, file, 491, 2, 23130);
+    			add_location(div4, file, 492, 2, 23157);
     			attr_dev(main, "class", "svelte-6l43g3");
-    			add_location(main, file, 465, 0, 22344);
+    			add_location(main, file, 466, 0, 22371);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109861,6 +109861,7 @@ var app = (function () {
     		if (window.location.hostname === "localhost") $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("./docs/" + contentName + ".md")).text())); else $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
 
     		for (const src of pageScripts) {
+    			console.log(src);
     			eval(yield (yield fetch(src)).text());
     		}
 

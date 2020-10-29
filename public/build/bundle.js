@@ -109017,20 +109017,20 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
+    	child_ctx[17] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
-    // (460:8) {:else}
+    // (475:8) {:else}
     function create_else_block(ctx) {
     	let div;
-    	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "";
+    	let t0_value = /*page*/ ctx[20].split("/")[/*page*/ ctx[20].split("/").length - 1] + "";
     	let t0;
     	let t1;
     	let div_class_value;
@@ -109038,7 +109038,7 @@ var app = (function () {
     	let dispose;
 
     	function click_handler_3(...args) {
-    		return /*click_handler_3*/ ctx[10](/*page*/ ctx[19], ...args);
+    		return /*click_handler_3*/ ctx[10](/*page*/ ctx[20], ...args);
     	}
 
     	const block = {
@@ -109047,12 +109047,12 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
 
-    			attr_dev(div, "class", div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
+    			attr_dev(div, "class", div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[20]
     			? "current"
     			: "") + " svelte-6l43g3");
 
-    			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
-    			add_location(div, file, 460, 10, 21979);
+    			set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 1) * 10 + "px");
+    			add_location(div, file, 475, 10, 22684);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109066,16 +109066,16 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 1] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[20].split("/")[/*page*/ ctx[20].split("/").length - 1] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*lastPage, pages*/ 40 && div_class_value !== (div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[19]
+    			if (dirty & /*lastPage, pages*/ 40 && div_class_value !== (div_class_value = "nav-link " + (/*lastPage*/ ctx[3] === /*page*/ ctx[20]
     			? "current"
     			: "") + " svelte-6l43g3")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
     			if (dirty & /*pages*/ 32) {
-    				set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 1) * 10 + "px");
+    				set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 1) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109089,18 +109089,18 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(460:8) {:else}",
+    		source: "(475:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (453:8) {#if page.endsWith("/")}
+    // (468:8) {#if page.endsWith("/")}
     function create_if_block(ctx) {
     	let div;
     	let span;
-    	let t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 2] + "/" + "";
+    	let t0_value = /*page*/ ctx[20].split("/")[/*page*/ ctx[20].split("/").length - 2] + "/" + "";
     	let t0;
     	let t1;
 
@@ -109110,10 +109110,10 @@ var app = (function () {
     			span = element("span");
     			t0 = text(t0_value);
     			t1 = space();
-    			add_location(span, file, 457, 10, 21873);
+    			add_location(span, file, 472, 10, 22578);
     			attr_dev(div, "class", "nav-dir-header svelte-6l43g3");
-    			set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
-    			add_location(div, file, 453, 8, 21746);
+    			set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 2) * 10 + "px");
+    			add_location(div, file, 468, 8, 22451);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -109122,10 +109122,10 @@ var app = (function () {
     			append_dev(div, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[19].split("/")[/*page*/ ctx[19].split("/").length - 2] + "/" + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*pages*/ 32 && t0_value !== (t0_value = /*page*/ ctx[20].split("/")[/*page*/ ctx[20].split("/").length - 2] + "/" + "")) set_data_dev(t0, t0_value);
 
     			if (dirty & /*pages*/ 32) {
-    				set_style(div, "margin-left", (/*page*/ ctx[19].split("/").length - 2) * 10 + "px");
+    				set_style(div, "margin-left", (/*page*/ ctx[20].split("/").length - 2) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109137,20 +109137,20 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(453:8) {#if page.endsWith(\\\"/\\\")}",
+    		source: "(468:8) {#if page.endsWith(\\\"/\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (452:6) {#each pages as page}
+    // (467:6) {#each pages as page}
     function create_each_block_1(ctx) {
     	let show_if;
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (show_if == null || dirty & /*pages*/ 32) show_if = !!/*page*/ ctx[19].endsWith("/");
+    		if (show_if == null || dirty & /*pages*/ 32) show_if = !!/*page*/ ctx[20].endsWith("/");
     		if (show_if) return create_if_block;
     		return create_else_block;
     	}
@@ -109190,18 +109190,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(452:6) {#each pages as page}",
+    		source: "(467:6) {#each pages as page}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (477:6) {#each TOC as header}
+    // (492:6) {#each TOC as header}
     function create_each_block(ctx) {
     	let li;
     	let a;
-    	let t_value = /*header*/ ctx[16].text + "";
+    	let t_value = /*header*/ ctx[17].text + "";
     	let t;
     	let a_href_value;
 
@@ -109210,11 +109210,11 @@ var app = (function () {
     			li = element("li");
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[16].id);
-    			add_location(a, file, 477, 61, 22521);
-    			set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
+    			attr_dev(a, "href", a_href_value = "#" + /*header*/ ctx[17].id);
+    			add_location(a, file, 492, 61, 23226);
+    			set_style(li, "margin-left", (/*header*/ ctx[17].level - 1) * 10 + "px");
     			attr_dev(li, "class", "svelte-6l43g3");
-    			add_location(li, file, 477, 8, 22468);
+    			add_location(li, file, 492, 8, 23173);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -109222,14 +109222,14 @@ var app = (function () {
     			append_dev(a, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*TOC*/ 1 && t_value !== (t_value = /*header*/ ctx[16].text + "")) set_data_dev(t, t_value);
+    			if (dirty & /*TOC*/ 1 && t_value !== (t_value = /*header*/ ctx[17].text + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*TOC*/ 1 && a_href_value !== (a_href_value = "#" + /*header*/ ctx[16].id)) {
+    			if (dirty & /*TOC*/ 1 && a_href_value !== (a_href_value = "#" + /*header*/ ctx[17].id)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
     			if (dirty & /*TOC*/ 1) {
-    				set_style(li, "margin-left", (/*header*/ ctx[16].level - 1) * 10 + "px");
+    				set_style(li, "margin-left", (/*header*/ ctx[17].level - 1) * 10 + "px");
     			}
     		},
     		d: function destroy(detaching) {
@@ -109241,7 +109241,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(477:6) {#each TOC as header}",
+    		source: "(492:6) {#each TOC as header}",
     		ctx
     	});
 
@@ -109315,29 +109315,29 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "class", "sidebarButton svelte-6l43g3");
-    			add_location(button0, file, 443, 2, 21264);
+    			add_location(button0, file, 458, 2, 21969);
     			attr_dev(button1, "class", "navButton svelte-6l43g3");
-    			add_location(button1, file, 444, 2, 21353);
+    			add_location(button1, file, 459, 2, 22058);
     			attr_dev(header, "class", "svelte-6l43g3");
-    			add_location(header, file, 442, 0, 21253);
+    			add_location(header, file, 457, 0, 21958);
 
     			attr_dev(div0, "class", div0_class_value = "offToggle " + (/*sidebarIsActive*/ ctx[2] || /*TOCIsActive*/ ctx[1]
     			? "active"
     			: "") + " svelte-6l43g3");
 
-    			add_location(div0, file, 446, 0, 21444);
+    			add_location(div0, file, 461, 0, 22149);
     			attr_dev(div1, "class", "list svelte-6l43g3");
-    			add_location(div1, file, 450, 4, 21658);
+    			add_location(div1, file, 465, 4, 22363);
     			attr_dev(div2, "class", div2_class_value = "sidebar " + (/*sidebarIsActive*/ ctx[2] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div2, file, 449, 2, 21598);
+    			add_location(div2, file, 464, 2, 22303);
     			attr_dev(div3, "class", "content svelte-6l43g3");
-    			add_location(div3, file, 471, 2, 22314);
+    			add_location(div3, file, 486, 2, 23019);
     			attr_dev(ul, "class", "svelte-6l43g3");
-    			add_location(ul, file, 475, 4, 22427);
+    			add_location(ul, file, 490, 4, 23132);
     			attr_dev(div4, "class", div4_class_value = "TOC " + (/*TOCIsActive*/ ctx[1] ? "active" : "") + " svelte-6l43g3");
-    			add_location(div4, file, 474, 2, 22375);
+    			add_location(div4, file, 489, 2, 23080);
     			attr_dev(main, "class", "svelte-6l43g3");
-    			add_location(main, file, 448, 0, 21589);
+    			add_location(main, file, 463, 0, 22294);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -109549,6 +109549,7 @@ var app = (function () {
     	let TOCIsActive = false;
     	let sidebarIsActive = false;
     	let lastPage = localStorage.getItem("lastPage");
+    	let pageScripts = [];
 
     	const renderer = {
     		// @ts-ignore
@@ -109726,11 +109727,29 @@ var app = (function () {
     				// @ts-ignore
     				return `<a href="${window.location.origin}${window.location.pathname}?page=${localStorage.getItem("lastPage")}&location=${new marked.Slugger().slug(href.substr(1), { dryrun: true })}">${text}</a>`;
     			} else if (href.includes("localhost") || href.includes("brawlre.github.io")) {
-    				const targetPage = new URLSearchParams(href).get("page");
+    				const targetPage = new URLSearchParams(href.substring(href.indexOf("?"))).get("page");
     				if (pages.includes(targetPage)) return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`; else return `<span class="invalid-link" data-targetpage="${targetPage}">${text}</span>`;
     			}
 
     			return false;
+    		},
+    		// @ts-ignore
+    		image(href, title, text) {
+    			console.log(href, title, text);
+
+    			if (text === "SCRIPT") {
+    				if (window.location.hostname === "localhost") {
+    					pageScripts = [
+    						...pageScripts,
+    						`${window.location.origin}${window.location.pathname}docs/${href.substring(1)}.js`
+    					];
+    				} else if (window.location.origin === "https://brawlre.github.io") {
+    					pageScripts = [
+    						...pageScripts,
+    						`https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/${href.substring(1)}`
+    					];
+    				}
+    			}
     		}
     	};
 
@@ -109838,6 +109857,12 @@ var app = (function () {
     		tables.length = 0;
     		$$invalidate(0, TOC.length = 0, TOC);
     		if (window.location.hostname === "localhost") $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("./docs/" + contentName + ".md")).text())); else $$invalidate(4, markedHTMLOut = marked(yield (yield fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
+
+    		for (const src of pageScripts) {
+    			eval(yield (yield fetch(src)).text());
+    		}
+
+    		// pageScripts = [];
     		yield tick();
 
     		if (tables.length > 10) {
@@ -109969,16 +109994,6 @@ var app = (function () {
     		}
     	});
 
-    	(() => __awaiter(void 0, void 0, void 0, function* () {
-    		const urlParams = new URLSearchParams(window.location.search);
-    		const linkedPage = urlParams.get("page");
-    		const linkedLocation = urlParams.get("location");
-    		yield updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
-
-    		// @ts-ignore
-    		if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, { dryrun: true })).scrollIntoView();
-    	}))();
-
     	// incredibly basic implementation - easy to break BUT ALSO very intuitive to use
     	let pages = [];
 
@@ -110007,6 +110022,14 @@ var app = (function () {
     				lastIndentLevel += 2;
     			}
     		}
+
+    		const urlParams = new URLSearchParams(window.location.search);
+    		const linkedPage = urlParams.get("page");
+    		const linkedLocation = urlParams.get("location");
+    		yield updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
+
+    		// @ts-ignore
+    		if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, { dryrun: true })).scrollIntoView();
     	}))();
 
     	const writable_props = [];
@@ -110038,6 +110061,7 @@ var app = (function () {
     		TOCIsActive,
     		sidebarIsActive,
     		lastPage,
+    		pageScripts,
     		renderer,
     		serializeHOTable,
     		markedHTMLOut,
@@ -110051,6 +110075,7 @@ var app = (function () {
     		if ("TOCIsActive" in $$props) $$invalidate(1, TOCIsActive = $$props.TOCIsActive);
     		if ("sidebarIsActive" in $$props) $$invalidate(2, sidebarIsActive = $$props.sidebarIsActive);
     		if ("lastPage" in $$props) $$invalidate(3, lastPage = $$props.lastPage);
+    		if ("pageScripts" in $$props) pageScripts = $$props.pageScripts;
     		if ("markedHTMLOut" in $$props) $$invalidate(4, markedHTMLOut = $$props.markedHTMLOut);
     		if ("pages" in $$props) $$invalidate(5, pages = $$props.pages);
     	};

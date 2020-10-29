@@ -43,6 +43,7 @@
   let TOCIsActive = false;
   let sidebarIsActive = false;
   let lastPage = localStorage.getItem("lastPage");
+  let pageScripts = [];
 
   const renderer: marked.Renderer = {
     // @ts-ignore
@@ -194,7 +195,7 @@
         // @ts-ignore
         return `<a href="${window.location.origin}${window.location.pathname}?page=${localStorage.getItem("lastPage")}&location=${new Slugger().slug(href.substr(1), {dryrun: true})}">${text}</a>`
       } else if (href.includes("localhost") || href.includes("brawlre.github.io")) {
-        const targetPage = (new URLSearchParams(href)).get("page");
+        const targetPage = (new URLSearchParams(href.substring(href.indexOf("?")))).get("page");
         if (pages.includes(targetPage))
           return `<a href="${window.location.origin}${window.location.pathname}${href.replace(/https?:\/\/(?:localhost:\d{4}|brawlre\.github\.io)/g, "")}">${text}</a>`;
         else
@@ -202,6 +203,17 @@
       }
 
       return false;
+    },
+    // @ts-ignore
+    image(href: string, title: string, text: string): string | boolean {
+      console.log(href, title, text);
+      if (text === "SCRIPT") {
+        if (window.location.hostname === "localhost") {
+          pageScripts = [...pageScripts, `${window.location.origin}${window.location.pathname}docs/${href.substring(1)}.js`];
+        } else if (window.location.origin === "https://brawlre.github.io") {
+          pageScripts = [...pageScripts, `https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/${href.substring(1)}`];
+        }
+      }
     }
   }
 
@@ -294,6 +306,11 @@
     else
       markedHTMLOut = marked((await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/" + contentName + ".md")).text()));
 
+    for (const src of pageScripts) {
+      eval(await (await fetch(src)).text());
+    }
+
+    // pageScripts = [];
     await tick();
 
     if (tables.length > 10) {
@@ -397,15 +414,6 @@
       })
     }
   }
-  (async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const linkedPage = urlParams.get('page');
-    const linkedLocation = urlParams.get('location');
-    await updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
-    // @ts-ignore
-    if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, {dryrun: true})).scrollIntoView();
-  })();
-
 
   // incredibly basic implementation - easy to break BUT ALSO very intuitive to use
   let pages = [];
@@ -437,7 +445,16 @@
         lastIndentLevel += 2;
       }
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    const linkedPage = urlParams.get('page');
+    const linkedLocation = urlParams.get('location');
+    await updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
+    // @ts-ignore
+    if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, {dryrun: true})).scrollIntoView();
   })();
+
+
+
 </script>
 
 <header>

@@ -1,3 +1,6 @@
+Credits/
+  Everyone
+  OGs
 Brawl/
   Variables/
     IC_Constants

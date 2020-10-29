@@ -211,8 +211,9 @@
         if (window.location.hostname === "localhost") {
           pageScripts = [...pageScripts, `${window.location.origin}${window.location.pathname}docs/${href.substring(1)}.js`];
         } else if (window.location.origin === "https://brawlre.github.io") {
-          pageScripts = [...pageScripts, `https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/${href.substring(1)}`];
+          pageScripts = [...pageScripts, `https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/${href.substring(1)}.js`];
         }
+        return '';
       }
     }
   }
@@ -309,6 +310,8 @@
     for (const src of pageScripts) {
       eval(await (await fetch(src)).text());
     }
+
+    pageScripts = [];
 
     // pageScripts = [];
     await tick();

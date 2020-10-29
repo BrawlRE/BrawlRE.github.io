@@ -7,6 +7,7 @@
   import marked, { Slugger } from 'marked';
   import hotable from 'handsontable';
   import { onMount, tick } from 'svelte';
+  import PageNav from './components/PageNav.svelte';
 
   // https://www.30secondsofcode.org/blog/s/copy-text-to-clipboard-with-javascript
   const copyToClipboard = str => {
@@ -20,6 +21,11 @@
     document.execCommand('copy');
     document.body.removeChild(el);
   };
+
+  // https://stackoverflow.com/a/43849204
+  const resolvePath = (object, path, defaultValue) => path
+   .split('.')
+   .reduce((o, p) => o ? o[p] : defaultValue, object)
 
   hotable.renderers.registerRenderer("hex", (instance, td, row, col, prop, value, cellProperties) => {
     td.style.fontFamily = "monospace";
@@ -421,6 +427,7 @@
 
   // incredibly basic implementation - easy to break BUT ALSO very intuitive to use
   let pages = [];
+  let pageDirStructure = {label: "_root", children: []};
   (async () => {
     const indentSize = 2;
 
@@ -431,12 +438,14 @@
       pageDataLines = (await (await fetch("https://raw.githubusercontent.com/BrawlRE/BrawlRE.github.io/main/public/docs/_pages.txt")).text()).replace(/\r/g, "").split("\n");
 
     const pathStack = [];
+    const pathDirStack: Array<typeof pageDirStructure> = [pageDirStructure];
     let lastIndentLevel = 0;
     for (const line of pageDataLines) {
       const thisIndentLevel = line.search(/\S/);
       if (thisIndentLevel < lastIndentLevel) {
         const levels = (lastIndentLevel - thisIndentLevel) / indentSize;
         for (let i = 0; i < levels; i++) pathStack.pop();
+        pathDirStack.length = pathStack.length + 1;
         lastIndentLevel = thisIndentLevel;
       } else {
         lastIndentLevel = thisIndentLevel;
@@ -446,9 +455,17 @@
 
       if (line.endsWith("/")) {
         pathStack.push(line.trim());
+        pathDirStack[pathDirStack.length - 1].children.push({label: line.trim(), children: []});
+        pathDirStack.push(pathDirStack[pathDirStack.length - 1].children.slice(-1)[0]);
         lastIndentLevel += 2;
+      } else {
+        pathDirStack[pathDirStack.length - 1].children.push(line.trim());
       }
     }
+
+    // svelte will update because I said so
+    pageDirStructure = pageDirStructure;
+
     const urlParams = new URLSearchParams(window.location.search);
     const linkedPage = urlParams.get('page');
     const linkedLocation = urlParams.get('location');
@@ -470,7 +487,8 @@
 <main>
   <div class="sidebar {sidebarIsActive ? 'active' : ''}">
     <div class="list">
-      {#each pages as page}
+      <PageNav {pageDirStructure} clickEvt={updatePageContent} {lastPage} />
+      <!-- {#each pages as page}
         {#if page.endsWith("/")}
         <div
           class="nav-dir-header"
@@ -487,7 +505,7 @@
             {page.split("/")[page.split("/").length - 1]}
           </div>
         {/if}
-      {/each}
+      {/each} -->
     </div>
   </div>
   <div class="content">
@@ -514,56 +532,35 @@ main > .sidebar {
   width: 250px;
   height: 100vh;
   box-shadow: inset -2px 0 2px #0004;
+  background-color: #222;
   flex-shrink: 0;
   overflow-y: scroll;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
-main > .sidebar::-webkit-scrollbar {
+/* main > .sidebar::-webkit-scrollbar {
   display: none;
-}
+} */
 
 main > .sidebar > .list {
   width: 100%;
-  padding: 20px;
-  font-size: 16px;
-}
-
-.list > .nav-dir-header {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.list > .nav-link:hover {
-  background-color: #0001;
-  cursor: pointer;
-}
-
-.list > .nav-link.current {
-  pointer-events: none;
-  position: relative;
-  background-color: #0001;
-  padding-left: 5px;
-}
-.list > .nav-link.current::before {
-  content: '';
-  position: absolute;
-  display: block;
-  right: 100%;
   height: 100%;
-  width: 3px;
-  background-color: red;
+  font-size: 16px;
+  background-color: #FFF;
 }
 
 main > .content {
   height: 100vh;
   padding: 10px 20px;
   overflow-y: scroll;
-  overflow-x: scroll;
+  overflow-x: hidden;
   flex-grow: 1;
 }
 
-main > .content::-webkit-scrollbar {
+/* main > .content::-webkit-scrollbar {
   display: none;
-}
+} */
 
 :global(.wtHider) {
   /* idk why but it breaks without this extremly hacky solution :( */
@@ -635,7 +632,6 @@ header {
   main > .sidebar {
     display: block;
     position: fixed;
-    background-color: #FFF;
     width: 250px;
     left: -250px;
     z-index: 1002;

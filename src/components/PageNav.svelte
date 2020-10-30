@@ -110,7 +110,8 @@ const getChildrenCount = (pd: pageDirectory) => {
   height: 25px;
   padding-left: 10px;
   position: relative;
-  width: max-content;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .nav-link:hover {
@@ -129,8 +130,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   display: block;
   right: 100%;
   height: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  width: 5px;
   /* margin-right: -5px; */
   background-color: red;
 }

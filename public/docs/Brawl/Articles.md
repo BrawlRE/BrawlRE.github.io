@@ -1,4 +1,4 @@
-# Introduction
+# Articles
 Articles are detachable objects, sometimes referred to as props or projectiles. They have their own sets of variables, attributes, and are controlled primarily by [[Article Floating Points]].
 
 The data below details the numerical IDs of articles, used in commands such as Generate Article (10000100) and Article Visibility (10050200).

@@ -20,6 +20,7 @@ Brawl/
   Fighter_Module_Constants
   Graphical_Effects
   Hitbox_Flags
+  Item_Generation_Table
   Kirby_Hat_Variables
 Tools/
   TestPage

@@ -418,6 +418,10 @@
       }
     }
 
+    const titleHeader = document.createElement("h6");
+    titleHeader.innerText = "link to this page";
+    document.getElementById("content").prepend(titleHeader);
+
     for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5, h6")) {
       heading.addEventListener("click", () => {
         copyToClipboard(`${window.location.origin}${window.location.pathname}?page=${contentName}&location=${heading.id}`);
@@ -471,11 +475,10 @@
     const linkedLocation = urlParams.get('location');
     await updatePageContent(linkedPage || localStorage.getItem("lastPage") || "index");
     // @ts-ignore
-    if (linkedLocation) document.getElementById(new marked.Slugger().slug(linkedLocation, {dryrun: true})).scrollIntoView();
+    const targetHeading = document.getElementById(new marked.Slugger().slug(linkedLocation, {dryrun: true}));
+    if (linkedLocation) targetHeading.scrollIntoView();
+    // if (window.innerWidth <= 1000) targetHeading.
   })();
-
-
-
 </script>
 
 <header>
@@ -488,27 +491,9 @@
   <div class="sidebar {sidebarIsActive ? 'active' : ''}">
     <div class="list">
       <PageNav {pageDirStructure} clickEvt={updatePageContent} {lastPage} />
-      <!-- {#each pages as page}
-        {#if page.endsWith("/")}
-        <div
-          class="nav-dir-header"
-          style="margin-left: {(page.split('/').length - 2) * 10}px"
-        >
-          <span>{page.split("/")[page.split("/").length - 2] + "/"}</span>
-        </div>
-        {:else}
-          <div
-            class="nav-link {(lastPage === page) ? "current" : ""}"
-            on:click={() => updatePageContent(page)}
-            style="margin-left: {(page.split('/').length - 1) * 10}px;"
-          >
-            {page.split("/")[page.split("/").length - 1]}
-          </div>
-        {/if}
-      {/each} -->
     </div>
   </div>
-  <div class="content">
+  <div class="content" id="content">
       {@html markedHTMLOut}
   </div>
   <div class="TOC {TOCIsActive ? 'active' : ''}">
@@ -632,6 +617,7 @@ header {
   main > .sidebar {
     display: block;
     position: fixed;
+    top: 0;
     width: 250px;
     left: -250px;
     z-index: 1002;
@@ -647,6 +633,7 @@ header {
     display: block;
     position: fixed;
     background-color: #FFF;
+    top: 0;
     width: 250px;
     right: -250px;
     z-index: 1002;
@@ -680,6 +667,7 @@ header {
     position: fixed;
     height: 65px;
     padding: 20px;
+    top: 0;
     width: 100vw;
     background-color: #FFF;
     box-shadow: 0 1px 3px #0004;
@@ -696,8 +684,14 @@ header {
     float: right;
   }
 
-  main > .content {
+  /* main > .content {
     margin-top: 65px;
+    height: calc(100vh - 65px);
+  } */
+
+  main {
+    position: absolute;
+    top: 65px;
     height: calc(100vh - 65px);
   }
 

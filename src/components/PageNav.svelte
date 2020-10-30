@@ -110,6 +110,7 @@ const getChildrenCount = (pd: pageDirectory) => {
   height: 25px;
   padding-left: 10px;
   position: relative;
+  width: max-content;
 }
 
 .nav-link:hover {

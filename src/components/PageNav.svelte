@@ -129,7 +129,8 @@ const getChildrenCount = (pd: pageDirectory) => {
   display: block;
   right: 100%;
   height: 100%;
-  width: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   /* margin-right: -5px; */
   background-color: red;
 }

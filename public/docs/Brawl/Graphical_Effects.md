@@ -4,7 +4,7 @@ An illustrated guide of the universal GFX is located here: http://www.youtube.co
 
 ```handsontable
 # OPTIONS
-#COLUMNS
+# COLUMNS
 Value {
   renderer: hex
 }

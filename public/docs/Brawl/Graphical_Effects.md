@@ -120,7 +120,7 @@ Effect
 0x6C | Circle of Red Sparks (Permanent)
 0x6D | Two Red Circles with Lightning Inside
 0x6E | Red Circle with Lightning Inside
-0x6F | Oval-esque Light (Green|White|Light Blue) Then Fades to the Left
+0x6F | Oval-esque Light (Green -- White -- Light Blue) Then Fades to the Left
 0x70 | Huge Vertical Ring of Fire
 0x71 | Oval-esque Light (Colors Change From Top to Bottom, From Light Blue to Green)
 0x72 | Small Glass Shatter

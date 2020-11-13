@@ -1,7 +1,72 @@
+? this is where the directory is defined
+? comments do NOT-YET exist at the end of lines
+? lines and filenames that start with "? " are comments and get ignored
+? to clarify, that is a question mark (?) followed by a space ( )
+
+? start a folder name with "?c " to make it show up as collapsed
+
 Credits/
   Everyone
   OGs
 Brawl/
+  ?c Structs/
+    ? soResourceModuleImpl
+    ? soModelModuleImpl
+    ? soMotionModuleImpl
+    soPostureModuleImpl
+    ? soGroundModuleImpl
+    ? soSituationModuleImpl
+    ? soTeamModuleImpl
+    ? soCollisionAttackModuleImpl
+    ? soCollisionHitModuleImpl
+    ? soCollisionShieldModuleImpl
+    ? soCollisionShieldModuleImpl
+    ? soCollisionShieldModuleNull
+    ? soCollisionCatchModuleImpl
+    ? soCollisionSearchModuleNull
+    ? soDamageModuleActor
+    ? soCatchModuleImpl
+    ? soCaptureModuleImpl
+    ? ftStopModuleImpl
+    ? soTurnModuleImpl
+    ? soShakeModuleImpl
+    ? soSoundModuleImpl
+    ? soLinkModuleImpl
+    ? soVisibilityModuleImpl
+    ? ftControllerModuleImpl
+    ? soCameraModuleImpl
+    ? soWorkManageModuleImpl
+    ? soDebugModuleNull
+    ? soAnimCmdModuleImpl
+    ? soStatusModuleImpl
+    ? ftGeneralTermDisideModuleImpl
+    ? ftSwitchDecideModuleImpl
+    ? soKineticModuleGenericImpl
+    ? soEventManageModuleImpl
+    ? soGenerateArticleManageModuleImpl
+    ? soEffectModuleImpl
+    ? ftComboModuleImpl
+    ? soAreaModuleImpl
+    ? soTerritoryModuleNull
+    ? soTargetSearchModuleNull
+    ? soPhysicsModuleImpl
+    ? soSlopeModuleImpl
+    ? soShadowModuleImpl
+    ? soItemManageModuleImpl
+    ? soColorBlendModuleImpl
+    ? soJostleModuleImpl
+    ? ftAbnormalModuleImpl
+    ? soSlowModuleImpl
+    ? soReflectModuleNull
+    ? soHeapModuleImpl
+    ? ftParamCustomizeModuleImpl
+    ? ftGlowModuleImpl
+  Kirby_Hats/
+    Subactions
+    Variables
+  Modules/
+    Module_Map_Files
+    Module_Table
   Variables/
     IC_Constants
     IC_Memory_Map
@@ -21,7 +86,7 @@ Brawl/
   Graphical_Effects
   Hitbox_Flags
   Item_Generation_Table
-  Kirby_Hat_Variables
 Tools/
   TestPage
 index
+changelog

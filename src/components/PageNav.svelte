@@ -3,6 +3,7 @@
 interface pageDirectory {
   label: string;
   children: Array<string | pageDirectory>;
+  collapsed?: boolean;
 }
 
 export let pageDirStructure: pageDirectory = {label: '_', children: []};
@@ -32,7 +33,7 @@ const getChildrenCount = (pd: pageDirectory) => {
     </div>
   {:else}
     <div
-      class="nav-dir-header active"
+      class="nav-dir-header {child.collapsed ? '' : "active"}"
       on:click={function(evt) {evt.stopPropagation(); this.classList.toggle("active")}}
     >
       <span>{child.label}</span>

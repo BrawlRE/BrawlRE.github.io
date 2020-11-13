@@ -1,0 +1,26 @@
+name: Create Struct Files
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: generate struct files
+        run: npm run consolidate-structs
+      - name: modify git repo
+        run: |
+          git add -A
+          git commit -m "updated struct file(s)"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

@@ -2,10 +2,10 @@
 
 These table files, found inside the ItemCommonGen.pac, inside Common3.pac, and ItemMelee###Gen.pac files as MiscData[0], determine how frequent an item/Pokémon/assist appears, and if available, which subtype is used. This table can also be used to define what items the stage can use, such as stage specific items like the apple from green greens. In order to spawn items like these, the item must have a directory inside the "item" folder such as "item/apple/". It seems the folder and the name of the itm__Param.pac and Itm__Brres.pac is static. This means to use them, we will need a list of directories to make items common.
 
-The general file structure follows the same layout as the [[Moveset File Format]], and can be broken down in the same fashion.
+The general file structure follows the same layout as the [Moveset File Format](/Brawl/Moveset_File_Format), and can be broken down in the same fashion.
 
 ### genParamSet
-The DataTable entry for "genParamSet" will take you to a list of offsets that is universally 0x28 in length and called the Table List. Each of the entries here will be 0x08 bytes in length and points to another list of offsets into the group list for a table. ([http://i.imgur.com/5tmyks1.png Visual representation of the Table List])
+The DataTable entry for "genParamSet" will take you to a list of offsets that is universally 0x28 in length and called the Table List. Each of the entries here will be 0x08 bytes in length and points to another list of offsets into the group list for a table. ([Visual representation of the Table List](http://i.imgur.com/5tmyks1.png))
 
 ```handsontable
 # COLUMNS
@@ -24,13 +24,20 @@ The group list is a section of data containing pointers to the actual Frequency 
 
 NOTE: It is likely that the groups are created in order to provide separate tables for Modes/Pokeballs/assists to look up for specific items. I.e for sudden death to choose the bob-omb variant which is already primed to explode. In addition, the unknown values in the group entries seem to be quite important, as the standard items always have 0x08 equal to the file index of the stage specific tables (10,000)
 
-
-Offset|Type|Description
+```handsontable
+# COLUMNS
+Offset {
+  renderer: hex
+}
+Type
+Description
+# DATA
 0x00|Hex|Related to next group's 0x08?
 0x04|Hex|Unknown
 0x08|Hex|Related to 0x00 in previous group?
 0x0C|Pointer|Pointer to the beginning of the Frequency entries in this group.
 0x10|Hex|Number of Frequency Entries in this group at the position in the table specified by 0x0C
+```
 
 ----
 The common table inside common3.pac seems to have organized the groups by mode, type, assist, and Pokemon. The common table is laid out as follows.

@@ -648,7 +648,10 @@ parameters [
 0x070C0000|ClearLog | Clears Buffer?|<$w3>
 ```
 
-## Module 08: Edge Interaction
+## Module 08: soGroundModuleImpl
+
+has to do with the ECB
+
 ```handsontable
 # OPTIONS
 # COLUMNS
@@ -663,11 +666,36 @@ parameters [
   description
 ]
 # DATA
-0x08000100|Set Edge Slide|Determines whether or not the character will slide off the edge.|Value|Character State|1: Can drop off side of stage.  2: Can't drop off side of stage.  5: Treated as in air; can leave stage vertically.  Other states currently unknown.
-0x08010100|Edge Interaction 01||Value|Undefined|undefined
-0x08020100|Edge Interaction 02||Value|Character State?|Appears to use similar values to "Set Edge Slide."
+0x08000100|Set Edge Slide|Determines whether or not the character will slide off the edge. (calls "setCorrect")|Value|Character State|1: Can drop off side of stage.  2: Can't drop off side of stage.  5: Treated as in air; can leave stage vertically.  Other states currently unknown.
+0x08010100|setCliffCheck||Boolean|shouldCheck|whether or not the character should try to grab the ledge
+0x08020100|selectCliffHangData|Sets which ledge grabbox is used?|Value|ledge grabbox used|
+0x08030100|???|Calls "setExclusiveLineAir" - sounds like it should be powerful but idk what it means|Value|???|
 0x08040100|Edge Interaction 04||Boolean|Undefined|undefined
-0x08070000|Edge Interaction 07|undefined|<$w3>
+0x08050000|???|based on modifyRhombus|<$w3h1>||
+0x08070000|Edge Interaction 07|undefined|<$w3h1>||
+0x08070100|???|Calls "ignoreTouchLine"|Value|???|
+0x08080000|attachGroundF|Like calling 8080100 with 0 passed as the arg|<$w3h1>null||
+0x08080100|attachGround|lets you tell the character to land properly\n(very powerful in theory)|Scalar|Controller|???
+<$w1h2>0x08080200|<$w1h2>attachGround|<$w1h2>^|Scalar|Controller|???
+|||Variable|Result Var|Writes some result into this variable
+0x08090100|Unknown|Something to do with controlling shape of ECB|Value|???|
+0x080A0100|Unknown|unsure what it controls specifically|Boolean|SetGrCollision Bool|
+0x080B0100|Attach|Attaches to a wall|Value|Collision Type|same as thing used for "isTouchingWall/Ceiling/etc"
+0x080C0000|Detach|Detaches to move from a wall collision|<$w3h1>null||
+0x080D0000|Start Trace|<$w1h7>(Subspace/Item-exclusive?)|<$w3h1>null||
+0x080E0000|getTraceTargetVector||<$w3h1>null||
+0x080F0000|getTraceTargetPosturePos||<$w3h1>null||
+0x08100000|renewTrace||<$w3h1>||
+0x08110000|endTrace||<$w3h1>||
+0x08130000|getDistanceFromCurrentTrace||<$w3h1>null||
+0x08140000|getTraceVecFromLine||<$w3h1>null||
+0x08150000|getTraceDistanceFromLine|calls update/[soGroundModule|<$w3h1>null||
+0x08160000|initRhombus||<$w3h1>null||
+0x08170000|???|based on modifyRhombus|<$w3h1>null||
+0x08180000|???|based on modifyRhombus|<$w3h1>null||
+0x08190000|???|based on modifyRhombus|<$w3h1>null||
+0x081A0100|???|turns on some flag with no helpful function call|Boolean|???|
+0x081B0100|setEventToGroundStatus|Might let you tell the game to put the character on the ground?|Boolean|???|
 ```
 
 ## Module 09: Situation?
@@ -1415,7 +1443,7 @@ parameters [
 ]
 # DATA
 0x22000100|Set Team?|Used with a parameter of -1 for a few explosives just before they go off (possibly to remove team allegiance and therefore hit the user).|Value|Undefined|undefined
-0x22020100|Unknown||Value|Undefined|undefined
+0x22020100|Set Ownership|used in explosives to enable damage to the original attacker|Value|Owner|Usually 0x14
 ```
 
 ## Module 64: Cancel
@@ -1453,21 +1481,25 @@ parameters [
   description
 ]
 # DATA
-0x65000000|Item Self-Delete?||<$w3>
-<$h2> 0x65030200|<$h2> Unknown|<$h2> Something with rotation on item spawning.|Scalar|Undefined|
+0x65000000|Destroy Item||<$w3h1>||
+<$w1h2> 0x65030200|<$w1h2> Unknown|<$w1h2> Something with rotation on item spawning.|Scalar|Undefined|
 |||Scalar|Undefined|
-0x65040100|Deletion Timer?|Sets how many frames an item has to live? (Also used in enemy files.)|Value|Lifetime (frames)?|
+<$w1h3>0x65030300|<$w1h3>Set Model Rotation|<$w1h3>null|Scalar|Pitch|<$w1h3>https://en.wikipedia.org/wiki/Aircraft_principal_axes
+|||Scalar|Yaw|
+|||Scalar|Roll|
+0x65040100|Deletion Timer|Sets how many frames an item has to live? (Also used in enemy files.)|Value|Lifetime (frames)?|
 0x65050100|Unknown|Unknown. Appears to be another timer.|Value|Undefined|
-<$h2> 0x65070200|<$h2> Unknown|<$h2> Unknown. Appears to affect float variables. Used twice in the Jyk file.|Variable|Undefined|
+0x65070100|Find Target|Sets the target of the item's AI, which it will then follow|Value|???|usually 0x2 or 0x4
+<$w1h2> 0x65070200|<$w1h2> Unknown|<$w1h2> Unknown. Appears to affect float variables. Used twice in the Jyk file.|Variable|Undefined|
 |||Variable|Undefined|
-<$h3> 0x65070300|<$h3> Unknown|<$h3> Unknown. Appears to affect float variables. Used in one of Manaphy's Actions.|Variable|Undefined|
+<$w1h3> 0x65070300|<$w1h3> Unknown|<$w1h3> Unknown. Appears to affect float variables. Used in one of Manaphy's Actions.|Variable|Undefined|
 |||Variable|Undefined|
 |||Variable|Undefined|
-<$h2> 0x65090200|<$h2> Unknown|<$h2> Unknown. Appears to affect float variables.|Variable|Undefined|
+<$w1h2> 0x65090200|<$w1h2> Unknown|<$w1h2> Unknown. Appears to affect float variables.|Variable|Undefined|
 |||Variable|Undefined|
-<$h2> 0x650F0200|<$h2> Unknown|<$h2> |Variable|Undefined|
+<$w1h2> 0x650F0200|<$w1h2> Unknown|<$w1h2>|Variable|Undefined|
 |||Value|Undefined|undefined
-<$h9> 0x65130900|<$h9> Generate Ratio-Based Random Number|<$h9> Generates a random number from 0 to [number of arguments-2], with the arguments starting at 1 being based on ratios.|Variable|Result Variable|The result of the function is put in this variable.
+<$w1h9> 0x65130900|<$w1h9> Generate Ratio-Based Random Number|<$w1h9> Generates a random number from 0 to [number of arguments-2], with the arguments starting at 1 being based on ratios.|Variable|Result Variable|The result of the function is put in this variable.
 |||Scalar|Ratio 1|
 |||Scalar|Ratio 2|
 |||Scalar|Ratio 3|
@@ -1476,12 +1508,14 @@ parameters [
 |||Scalar|Ratio 6|
 |||Scalar|Ratio 7|
 |||Scalar|Ratio 8|
-<$h2> 0x65170200|<$h2> Unknown|<$h2> Has something to do with sounds?|Value|Undefined|
+<$w1h2> 0x65170200|<$w1h2> Unknown|<$w1h2> Has something to do with sounds?|Value|Undefined|
 |||Value|Undefined|undefined
 0x651B0100|Activate slow motion?|Used in the Dragoon.|Value|Duration?|
-0x651C0000|Deactivate slow motion?|Used in the Dragoon.|<$w3>
+0x651C0000|Deactivate slow motion?|Used in the Dragoon.|<$w3h1>||
+<$w1h2>0x651D0200|<$w1h2>Set Ownership|<$w1h2>null|Value|Owner?|0xFFFFFFFF to be neutral
+|||Value|Team?|
 0x651F0100|Unknown|Unknown. Used in the bumper item at least.|Value|Undefined|
-0x652C0000|Unknown|Unknown. In charizard's sideB subaction. If you nop it, he will not make rock shards or play the rock break sfx. wtf.|<$w3>
+0x652C0000|Unknown|Unknown. In charizard's sideB subaction. If you nop it, he will not make rock shards or play the rock break sfx. wtf.|<$w3h1>||
 ```
 
 ## Module 66: Unknown (SSE-related?)
@@ -1499,23 +1533,45 @@ parameters [
   description
 ]
 # DATA
-<$h2> 0x66000200|<$h2> Unknown|<$h2> |Value|Undefined|
+<$w1h2> 0x66000200|<$w1h2> Unknown|<$w1h2>|Value|Undefined|
 |||Value|Undefined|
-<$h4> 0x66000400|<$h4> Unknown|<$h4> Unknown. Used five times in the Jyk file with the values increasing somewhat constantly for each one (difficulty-related?).|Value|Undefined|
+<$w1h4>0x66000400|<$w1h4> Unknown|<$w1h4> Unknown. Used five times in the Jyk file with the values increasing somewhat constantly for each one (difficulty-related?).|Value|Undefined|
 |||Value|Undefined|
 |||Scalar|Undefined|
 |||Value|Undefined|
+<$w1h13>0x66000D00|<$w1h13>Apply Momentum|<$w1h13>|Scalar|x speed|
+|||Scalar|y speed|
+|||Scalar|x multiplier|
+|||Scalar|y multiplier|
+|||Value|???|
+|||Value|???|
+|||Value|???|
+|||Value|???|
+|||Value|???|
+|||Value|???|<$w1h3>Based on facing direction
+|||Value|???|
+|||Value|???|
+|||Value|???|
+<$w1h3>0x66010300|<$w1h3>Constant Model Rotation|<$w1h3>Call this and the model will rotate at this rate continuously|Scalar|Pitch|<$w1h3>https://en.wikipedia.org/wiki/Aircraft_principal_axes
+|||Scalar|Yaw|
+|||Scalar|Roll|
+<$w1h3>0x66020300|<$w1h3>Remove Momentum|<$w1h3>null|Scalar|x amount|
+|||Scalar|y amount|
+|||Value|???|possibly Z amount?
+<$w1h3>0x66050300|<$w1h3>Metroid Movement?|<$w1h3>"metroid-like movement, has to be called once"|Value|???|Usually 0x4
+|||Scalar|Speed|
+|||Value|Timer|Time until it moves again?
 0x66060100|Unknown|Unknown. Used in action C of bumper at least.|Value|Undefined|
 0x66070100|Unknown||Value|Undefined|
-<$h2> 0x66090200|<$h2> Unknown|<$h2> |Value|Undefined|
+<$w1h2> 0x66090200|<$w1h2> Unknown|<$w1h2>|Value|Undefined|
 |||Value|Undefined|
-<$h2> 0x660A0200|<$h2> Unknown|<$h2> |Value|Undefined|
+<$w1h2> 0x660A0200|<$w1h2> Unknown|<$w1h2>|Value|Undefined|
 |||Value|Undefined|
-<$h2> 0x660B0200|<$h2> Unknown|<$h2> |Value|Undefined|
+<$w1h2> 0x660B0200|<$w1h2> Unknown|<$w1h2>|Value|Undefined|
 |||Value|Undefined|
-<$h3> 0x660B0300|<$h3> Unknown|<$h3> Unknown. Something with spawn rotation.|Scalar|Undefined|
-|||Scalar|Undefined|
-|||Scalar|Undefined|
+<$w1h3>0x660B0300|<$w1h3>Set Model Rotation|<$w1h3>|Scalar|Pitch|<$w1h3>https://en.wikipedia.org/wiki/Aircraft_principal_axes
+|||Scalar|Yaw|
+|||Scalar|Roll|
 ```
 ## Module 69: Unknown (SSE-related?)
 ```handsontable

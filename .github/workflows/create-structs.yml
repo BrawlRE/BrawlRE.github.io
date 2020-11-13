@@ -15,12 +15,12 @@ jobs:
           node-version: '12'
       - name: generate struct files
         run: npm run consolidate-structs
-      - name: modify git repo
-        run: |
-          git add -A
-          git commit -m "updated struct file(s)"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: modify and push
+        uses: EndBug/add-and-commit@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          add: -A
+          message: "updated struct file(s)"
+          push: true
+          tag: bot-action
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

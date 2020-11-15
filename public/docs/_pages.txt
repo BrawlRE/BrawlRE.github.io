@@ -71,6 +71,18 @@ Brawl/
     IC_Constants
     IC_Memory_Map
     Overview
+  AI_Modding/
+    introduction
+    Basics/
+      getting_started
+      as_files
+      ? aipd
+      ? atkd
+      ? globals
+      ? macros
+      include_files
+    ?c Falconbot/
+      Philosophy
   Actions
   Article_Variables
   Articles
@@ -86,6 +98,7 @@ Brawl/
   Graphical_Effects
   Hitbox_Flags
   Item_Generation_Table
+  Items
 Tools/
   TestPage
 index

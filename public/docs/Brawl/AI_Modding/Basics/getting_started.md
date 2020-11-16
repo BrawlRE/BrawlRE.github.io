@@ -74,3 +74,6 @@ You now have the basic knowledge necessary to look at an AI's scripts and rebuil
 ...But you'll probably want to learn how to actually *modify* the AI's scripts.
 
 Remember the `.as`, `.aipd`, and `.atkd` files from earlier? Well, there are tutorials for each of those and more! Check 'em out!
+
+- [`.as` files](/Brawl/AI_Modding/Basics/as_files)
+- [include files](/Brawl/AI_Modding/Basics/include_files)

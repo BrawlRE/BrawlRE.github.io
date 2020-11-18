@@ -10,6 +10,8 @@ Each numbered file corresponds to a different routine that the AI performs. Some
 
 You can find out what each one *generally* corresponds to in the `Routines.h` file in the `include` folder.
 
+Keep in mind that as of 11/17/2020 you still cannot easily edit common3.pac (where the default AI is stored). This is the reason for there being so many different scripts for PM/P+ characters -- they're there to override the default behavior without actually touching common3 itself.
+
 ## General Syntax
 
 the `.as` format uses a scripting language defined by the `include` files that are directly converted to commands used by the game. There are certain things included by default that allow you do do things easily, including various control flow operations, logical symbols, and mathematical operators.

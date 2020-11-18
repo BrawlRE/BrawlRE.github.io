@@ -75,12 +75,11 @@ Brawl/
     introduction
     Basics/
       getting_started
-      as_files
-      ? aipd
-      ? atkd
-      ? globals
-      ? macros
+      CPU_level_values
       include_files
+      as_files
+      AIPD_file
+      ATKD_file
     ?c Falconbot/
       Philosophy
   Actions

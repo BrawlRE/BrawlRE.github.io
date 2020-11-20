@@ -8,9 +8,11 @@ This article will teach you how to program the `.as` files themselves.
 
 Each numbered file corresponds to a different routine that the AI performs. Some of these are special and are coded by-default to do certain things. This default behavior can *usually* be found in the fighter AI within `common3.pac`. However, these behaviors can usually be overwritten to technically do whatever you want.
 
+The time at which certain routines are performed *is* hardcoded in certain scenarios based on the AI "mode" which makes it very difficult to keep things modular.
+
 You can find out what each one *generally* corresponds to in the `Routines.h` file in the `include` folder.
 
-Keep in mind that as of 11/17/2020 you still cannot easily edit common3.pac (where the default AI is stored). This is the reason for there being so many different scripts for PM/P+ characters -- they're there to override the default behavior without actually touching common3 itself.
+Keep in mind that as of 11/17/2020 you still cannot easily edit the default AI (found in common3) without potentially messing up all sorts of other codes. This is the reason for there being so many different scripts for PM/P+ characters -- they're there to override the default behavior without actually touching common3 itself.
 
 ## General Syntax
 
@@ -313,9 +315,9 @@ This is responsible for telling the game what script this actually is. The main 
 unk 0x00000
 ```
 
-`unk` in this case is a value that isn't fully understood at the time of writing this tutorial. What it seems to do is hook back into the common functions to somehow execute it *before* the script itself is executed.
+`unk` is a bit of a relic from knowledge that hasn't been updated in about 10 years as of the writing of this documentation. The only significant part of this value is the hex before the last `0000` (meaning the only significant part in `unk 0x120000` for instance is the `0x12`). This is effectively a shorthand way of setting up to the first `0x18` (24) variables to 0.
 
-This oftentimes isn't what we want - so setting it to `0x00000` (or just `0x0`) seems to prevent that unpredictable behavior from happening.
+So basically just set it to `0x0` to keep your own scripts from erasing your own variables.
 
 ```as
 //Strings

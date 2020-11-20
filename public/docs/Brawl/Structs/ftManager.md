@@ -1,0 +1,7 @@
+```struct
+ftManager {
+
+
+  $160
+}
+```

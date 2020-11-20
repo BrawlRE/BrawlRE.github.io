@@ -1,0 +1,4 @@
+```struct
+AiEnemyManager {
+  $484
+}

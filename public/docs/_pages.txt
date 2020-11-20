@@ -80,6 +80,8 @@ Brawl/
       as_files
       AIPD_file
       ATKD_file
+    Development_Techniques/
+      Fixing_Melee_Airdodge_SDs
     ?c Falconbot/
       Philosophy
   Actions

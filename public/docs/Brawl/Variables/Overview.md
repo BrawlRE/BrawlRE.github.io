@@ -114,53 +114,54 @@ End
 Type
 Memory Address
 # DATA
-Runtime Longterm|Bit|0|IsDead|0 = Alive, 1 = Dead|Unknown
-Runtime Longterm|Bit|1|CannotDie|0 = Can die off boundaries, 1 = Can't|Unknown
-Runtime Longterm|Bit|5|Automatic Footstool|Set when within range of FSing Squirtle during Side-B, and some SSE enemies. Allows FSing automatically|Unknown
-Runtime Longterm|Bit|8|HasFinal|Final Smash is availible (Forces FS to happen, freezes if FS isn't loaded for some characters)|Unknown
-Runtime Longterm|Bit|9|HasFinalAura|Final Smash Aura activator (according to LA-Bit[8])|Unknown
-Runtime Longterm|Bit|10|HasCurry|Goes into curry idle subaction while set|Unknown
-Runtime Longterm|Bit|11|HasHammer|Goes into hammer actions while set|Unknown
-Runtime Longterm|Bit|17|Hit by Paralyze|Set when hit by paralyze and unable to be stunned again while set. Cleared on landing and edgegrab.|Unknown
-Runtime Longterm|Bit|19|HasScrewAttack|Goes into screw attack jumps while set|Unknown
-Runtime Longterm|Bit|24|Stamina KOed|Goes into uninterruptible fall and downed actions while set|Unknown
-Runtime Longterm|Bit|27|HasTag|0 = Tag Display, 1 = No tag|Unknown
-Runtime Longterm|Bit|34|Can LedgeGrab?|Has something to do with ledge grabbing; ledge grabbing can only occur if this bit is not set.|Alloy's
-Runtime Longterm|Bit|36|Can Teeter?|Has something to do with teetering; teetering can only occur if this bit is not set.|sub@ba6c
-Runtime Longterm|Bit|57|Momentum Force?|If set to true, character momentum codes are unaffected by hitstun. Set this to true directly before the momentum and set this to false directly after the momentum.|Ike's special Hi3
-Runtime Longterm|Bit|61|CanUseUpSpecial? Also used In Skull bash and Cypher somehow||Falcon/Pikachu/Snake
-Runtime Longterm|Bit|65|Deflection Toggle?|If set to true, it deflects projectiles. Only seen to work on Link and Toon Link on their Wait animations, and on Kirby's Down-B.|Link's Wait1 animation.
-Runtime Longterm|Basic|1|JumpsUsed|Number of jumps used.|Unknown
-Runtime Longterm|Basic|3|WallJumpCount|Number of walljumps performed. Each walljump goes lower the higher this number gets.|Unknown
-Runtime Longterm|Basic|4|WallJumpInterval|Frames until next walljump allowed on same wall|Unknown
-Runtime Longterm|Basic|5|FootstoolCount|Number of footstools done since the last landing|Unknown
-Runtime Longterm|Basic|13|FallTime|Falling Time|Unknown
-Runtime Longterm|Basic|20|SwimTime|How long characters been swimming?|Unknown
-Runtime Longterm|Basic|24|LipStickRefresh|Lip's Stick damage refresh timer(How many frames till the next self-damge?)|Unknown
-Runtime Longterm|Basic|25|CurryRemainingTime|Curry Remaining Time|Unknown
-Runtime Longterm|Basic|26|CurryAngle2|Related to Curry Angle|Unknown
-Runtime Longterm|Basic|30|StarRemainingTime|Star Remaining Time|Unknown
-Runtime Longterm|Basic|33|MushroomRemainingTime|Mushroom Remaining Time|Unknown
-Runtime Longterm|Basic|34|LightningRemainingTime|Lightning Remaining Time|Unknown
-Runtime Longterm|Basic|35|SizeFlag|Has something to do with the size effect. 0 = normal, 1 = "Growing to Normal," 2 = "Shrinking to normal," 3 = "Big," super mushroom does nothing, poison goes back to normal, 4 = "Growing," 5 = "Small," poison mushroom does nothing, super goes to normal, 6 = "Shrinking to Small"|Unknown
-Runtime Longterm|Basic|37|MetalBlockRemainingTime|Metal Block Remaining Time|Unknown
-Runtime Longterm|Basic|44|ComboCount|Combo Counter|Unknown
-Runtime Longterm|Basic|46|BubbleTime?|Time spent outside camera range?|Unknown
-Runtime Longterm|Basic|53|AttacksPerformed|Number of attacks done(per match)|Unknown
-Runtime Longterm|Bit|54|Costume ID|Contains the current costumes ID.|Sonic's Run/Side-Taunt
-Runtime Longterm|Basic|56|HitstunFrames|Number of frames of hitstun remaining|Unknown
-Runtime Longterm|Basic|57|MeteorCancelWindow?||Unknown
-Runtime Longterm|Basic|59|ScrewAttack?|Something with screw attack|Unknown
-Runtime Longterm|Basic|61|MissedTechs|Increments every time the character bounces off a wall or ceiling. After 3 bounces, you can no longer bounce off of anything.|Unknown
-Runtime Longterm|Basic|62|TetherCount|Increments every time the character tethers|Unknown
-Runtime Longterm|Basic|64|Temp||Falcon/Pikachu
-Runtime Longterm|Basic|65|Temp||Falcon
-Runtime Longterm|Float|0|Special Landing Lag|Sets the number of frames of landing lag after your special move|Unknown
-Runtime Longterm|Float|1|Special Fall mobility multiplier|Multiplier for mobility attributes during Special Fall|Unknown
-Runtime Longterm|Float|3|ShieldCharge|Shield Charge. Maximum = 50 for all characters.|Unknown
-Runtime Longterm|Float|4|ShieldUnknown|Used to deliver 12% damage to GW when a #1 comes up for Judge, but does not seem to be used for Ike's 10% self-damage from a fully charged Eruption.|Unknown
-Runtime Longterm|Float|7|CurryAngle1|Curry Angle|Unknown
-Runtime Longterm|Float|8|CurryRandomness|Curry Angle Randomness|Unknown
+Runtime Longterm|Bit|0|IsDead
+Runtime Longterm|Bit|1|CannotDie
+Runtime Longterm|Bit|5|Automatic Footstool
+Runtime Longterm|Bit|8|HasFinal
+Runtime Longterm|Bit|9|HasFinalAura
+Runtime Longterm|Bit|10|HasCurry
+Runtime Longterm|Bit|11|HasHammer
+Runtime Longterm|Bit|17|Hit by Paralyze
+Runtime Longterm|Bit|19|HasScrewAttack
+Runtime Longterm|Bit|24|Stamina KOed
+Runtime Longterm|Bit|27|HasTag
+Runtime Longterm|Bit|34|Can LedgeGrab?
+Runtime Longterm|Bit|36|Can Teeter?
+Runtime Longterm|Bit|57|Momentum Force?
+Runtime Longterm|Bit|61|CanUseUpSpecial? Also used In Skull bash and Cypher somehow
+Runtime Longterm|Bit|65|Deflection Toggle?
+Runtime Longterm|Basic|1|JumpsUsed
+Runtime Longterm|Basic|3|WallJumpCount
+Runtime Longterm|Basic|4|WallJumpInterval
+Runtime Longterm|Basic|5|FootstoolCount
+Runtime Longterm|Basic|13|FallTime
+Runtime Longterm|Basic|20|SwimTime
+Runtime Longterm|Basic|24|LipStickRefresh
+Runtime Longterm|Basic|25|CurryRemainingTime
+Runtime Longterm|Basic|26|CurryAngle2
+Runtime Longterm|Basic|30|StarRemainingTime
+Runtime Longterm|Basic|33|MushroomRemainingTime
+Runtime Longterm|Basic|34|LightningRemainingTime
+Runtime Longterm|Basic|35|SizeFlag
+Runtime Longterm|Basic|37|MetalBlockRemainingTime
+Runtime Longterm|Basic|41|KO Type
+Runtime Longterm|Basic|44|ComboCount
+Runtime Longterm|Basic|46|BubbleTime?
+Runtime Longterm|Basic|53|AttacksPerformed
+Runtime Longterm|Basic|54|Costume ID
+Runtime Longterm|Basic|56|HitstunFrames
+Runtime Longterm|Basic|57|MeteorCancelWindow?
+Runtime Longterm|Basic|59|ScrewAttack?
+Runtime Longterm|Basic|61|MissedTechs
+Runtime Longterm|Basic|62|TetherCount
+Runtime Longterm|Basic|64|Temp
+Runtime Longterm|Basic|65|Temp
+Runtime Longterm|Float|0|Special Landing Lag
+Runtime Longterm|Float|1|Special Fall mobility multiplier
+Runtime Longterm|Float|3|ShieldCharge
+Runtime Longterm|Float|4|ShieldUnknown
+Runtime Longterm|Float|7|CurryAngle1
+Runtime Longterm|Float|8|CurryRandomness
 ```
 
 ## Old Table

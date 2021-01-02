@@ -146,10 +146,11 @@ Runtime Longterm|Basic|33|MushroomRemainingTime|Mushroom Remaining Time|Unknown
 Runtime Longterm|Basic|34|LightningRemainingTime|Lightning Remaining Time|Unknown
 Runtime Longterm|Basic|35|SizeFlag|Has something to do with the size effect. 0 = normal, 1 = "Growing to Normal," 2 = "Shrinking to normal," 3 = "Big," super mushroom does nothing, poison goes back to normal, 4 = "Growing," 5 = "Small," poison mushroom does nothing, super goes to normal, 6 = "Shrinking to Small"|Unknown
 Runtime Longterm|Basic|37|MetalBlockRemainingTime|Metal Block Remaining Time|Unknown
+Runtime Longterm|Basic|41|KO Type|The type of KO that the character is currently in. 0 = normal KO, 1 = star KO, 2 = screen KO|Unknown
 Runtime Longterm|Basic|44|ComboCount|Combo Counter|Unknown
 Runtime Longterm|Basic|46|BubbleTime?|Time spent outside camera range?|Unknown
 Runtime Longterm|Basic|53|AttacksPerformed|Number of attacks done(per match)|Unknown
-Runtime Longterm|Bit|54|Costume ID|Contains the current costumes ID.|Sonic's Run/Side-Taunt
+Runtime Longterm|Basic|54|Costume ID|Contains the current costumes ID.|Sonic's Run/Side-Taunt
 Runtime Longterm|Basic|56|HitstunFrames|Number of frames of hitstun remaining|Unknown
 Runtime Longterm|Basic|57|MeteorCancelWindow?||Unknown
 Runtime Longterm|Basic|59|ScrewAttack?|Something with screw attack|Unknown

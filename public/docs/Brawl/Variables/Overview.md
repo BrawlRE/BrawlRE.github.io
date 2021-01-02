@@ -29,10 +29,11 @@ Memory Address
 
 ```handsontable
 # COLUMNS
-Start
-End
+Classification
 Type
-Memory Address
+Number
+Name
+Description
 # DATA
 Internal Constant|Basic|0|CurrentFrame|Current Animation Frame|Unknown
 Internal Constant|Basic|2|Damage|Current damage. Despite not showing on the HUD, reads negative and positive values past 999 and below 0; it's believed that damage past 999 is capped at 999 once knockback is calculated.|Unknown
@@ -109,10 +110,11 @@ Internal Constant|Basic|24000+|Integer Accessor|Accesses integer special move da
 
 ```handsontable
 # COLUMNS
-Start
-End
+Classification
 Type
-Memory Address
+Number
+Name
+Description
 # DATA
 Runtime Longterm|Bit|0|IsDead|0 = Alive, 1 = Dead|Unknown
 Runtime Longterm|Bit|1|CannotDie|0 = Can die off boundaries, 1 = Can't|Unknown
@@ -166,10 +168,11 @@ Runtime Longterm|Float|8|CurryRandomness|Curry Angle Randomness|Unknown
 ## Old Table
 ```handsontable
 # COLUMNS
-Start
-End
+Classification
 Type
-Memory Address
+Number
+Name
+Description
 # DATA
 Random Access|Basic|2|Throw Data 1|Used as the third parameter of all throw appliers (060F0500)|Throws
 Random Access|Basic|3|Throw Data 2|Used as the fourth parameter of all throw appliers (060F0500)|Throws

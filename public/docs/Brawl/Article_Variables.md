@@ -971,7 +971,7 @@ Description
 0x1943C | 8.5 | Reflection bubble size?
 0x19440 | 1.5 | Reflected projectile damage multiplier
 0x19444 | 1.0 | Reflected projectile speed multiplier
-0x19448 | 0.5
+0x19448 | 0.5 | Reflected projectile lifetime multiplier
 0x1944C | 0 | rowspan="5" | Apparently a list of the five above-ground 45-degree angles.
 0x19450 | 45.0
 0x19454 | 90.0

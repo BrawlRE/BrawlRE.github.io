@@ -194,7 +194,7 @@ Description
 # DATA
 0x00 |  uint32_t |  Title String |  The index of the event title string found in MiscData[30].
 0x04 |  uint32_t |  Description String |  The index of the event description string found in MiscData[30].
-0x08 |  uint8_t |  Unknown |  Related to0x0A.
+0x08 |  uint8_t |  Character Slot |  The CSS Slot of the character played in the event. Related to0x0A.
 0x09 | uint8_t  | Unknown |
 0x0A |  uint8_t |  Unknown |  Related to0x08.
 0x0B |  uint8_t |  Flags |  Only value seen:\n-0x40: Unknown

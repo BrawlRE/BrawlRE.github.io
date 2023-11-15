@@ -514,10 +514,10 @@ SSE Data Select | Y12 | 282A
 Step: The Research Facility B | Y13 | 282B
 Step: Subspace Ver.2 | Y14 | 282C
 Step: Subspace Ver.3 | Y15 | 282D
+Halberd Engine Hum | Y16 | 282E
+SSE Final Results | Y17 | 282F
 ```
 A number of these tracks are not officially named, and have unofficial names in the table.
-Y16/282E is the ambient background SFX that plays during Battleship Halberd Exterior.
-Y17/282F is an ambient, monotonous hum sound effect.
 
 Various jingles (Zxx filenames)
 None of these songs loop.

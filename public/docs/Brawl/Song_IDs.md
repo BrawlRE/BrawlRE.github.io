@@ -1,6 +1,6 @@
-## Regular Music
+## Song IDs and Filenames
 
-Super Smash Bros. Brawl franchise (Xxx filenames)
+### Super Smash Bros. Brawl franchise (Xxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -33,12 +33,16 @@ Target Smash!! | X26 | 2712
 Credits | X27 | 2713
 ```
 X06/26FE is the song that plays on the Classic mode score screen after defeating Master Hand.
-X12/2704 is not referenced anywhere.
-X14/2706 is referenced, codenamed "ENDING"
-X22/270E is the jingle that plays at the end of Classic mode, when your trophy lands on the table.
-X24/2710 is referenced, but has no codename
 
-Mario franchise (Axx filenames)
+X12/2704 is not referenced anywhere.
+
+X14/2706 is referenced, codenamed "ENDING".
+
+X22/270E is the jingle that plays at the end of Classic mode, when your trophy lands on the table.
+
+X24/2710 is referenced, but has no codename.
+
+### Mario franchise (Axx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -65,10 +69,11 @@ Luigi Circuit | A21 | 2726
 Waluigi Pinball | A22 | 2727
 Rainbow Road | A23 | 2728
 ```
-A11/271E is referenced, codenamed "MLRPG02"
-A12/271F is referenced, codenamed "MORINOKINOKO"
+A11/271E is referenced, codenamed "MLRPG02".
 
-Donkey Kong franchise (Bxx filenames)
+A12/271F is referenced, codenamed "MORINOKINOKO".
+
+### Donkey Kong franchise (Bxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -87,7 +92,7 @@ Jungle Level | B08 | 2730
 DK Jungle 1 Theme (Barrel Blast) | B10 | 2732
 ```
 
-The Legend of Zelda franchise (Cxx filenames)
+### The Legend of Zelda franchise (Cxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -115,7 +120,7 @@ Midna's Lament | C19 | 2745
 ```
 C06/2738 is referenced, codenamed "KAZENOSAKANA"
 
-Metroid franchise (Dxx filenames)
+### Metroid franchise (Dxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -134,7 +139,7 @@ Vs. Meta Ridley | D09 | 274E
 Multiplayer (Metroid Prime 2) | D10 | 274F
 ```
 
-Yoshi franchise (Exx filenames)
+### Yoshi franchise (Exx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -149,10 +154,12 @@ Wildlands | E06 | 2755
 Obstacle Course (Winter) | E07 | 2751
 ```
 When Obstacle Course plays on Yoshi's Island, E02 is used during spring and summer, while E07 is used during fall and winter.
-E04/2753 is referenced, codenamed "COCKIE"
+
+E04/2753 is referenced, codenamed "COCKIE".
+
 Song ID 2756 is referenced, codenamed "ATHLETIC2". Likely involved in handling the song switching on the Yoshi's Island stage.
 
-Kirby franchise (Fxx filenames)
+### Kirby franchise (Fxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -173,7 +180,7 @@ Frozen Hillside | F11 | 2761
 Squeak Squad Theme | F12 | 2762
 ```
 
-Star Fox franchise (Gxx filenames)
+### Star Fox franchise (Gxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -191,9 +198,9 @@ Star Wolf (Star Fox: Assault) | G09 | 276B
 Space Armada | G10 | 276C
 Area 6 Ver. 2 | G11 | 276D
 ```
-G06/2768 is referenced, codenamed "COMMAND"
+G06/2768 is referenced, codenamed "COMMAND".
 
-Pokémon franchise (Hxx filenames)
+### Pokémon franchise (Hxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -212,7 +219,7 @@ Team Galactic Battle! | H09 | 2776
 Route 209 | H10 | 2777
 ```
 
-F-Zero franchise (Ixx filenames)
+### F-Zero franchise (Ixx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -231,7 +238,7 @@ Shotgun Kiss | I09 | 2780
 Planet Colors | I10 | 2781
 ```
 
-Fire Emblem franchise (Jxx filenames)
+### Fire Emblem franchise (Jxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -250,10 +257,11 @@ Power-Hungry Fool | J11 | 278C
 Victory Is Near | J12 | 278D
 Ike's Theme | J13 | 278E
 ```
-J01/2782 is not referenced anywhere, heavily implying a cut Fire Emblem song
-J06/2786 is not referenced anywhere, heavily implying another cut FE song
+J01/2782 is not referenced anywhere, heavily implying a cut Fire Emblem song.
 
-Mother/Earthbound franchise (Kxx filenames)
+J06/2786 is not referenced anywhere, heavily implying another cut FE song.
+
+### Mother/Earthbound franchise (Kxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -267,12 +275,15 @@ Mother 3 Love Theme | K08 | 2796
 Unfounded Revenge / Smashing Song of Praise | K09 | 2797
 You Call This a Utopia?! | K10 | 2798
 ```
-K02/2790 is referenced, codenamed "SENTOUONIISAN"
-K03/2791 is referenced, codenamed "EIGHTMELODIES"
-K04/2792 is referenced, codenamed "SMILEANDTEARS"
-K06/2794 is referenced, codenamed "BECAUSE"
+K02/2790 is referenced, codenamed "SENTOUONIISAN".
 
-Pikmin franchise (Lxx filenames)
+K03/2791 is referenced, codenamed "EIGHTMELODIES".
+
+K04/2792 is referenced, codenamed "SMILEANDTEARS".
+
+K06/2794 is referenced, codenamed "BECAUSE".
+
+### Pikmin franchise (Lxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -289,7 +300,7 @@ Stage Clear / Title (Pikmin) | L07 | 279F
 Ai no Uta (French Version) | L08 | 27A0
 ```
 
-Wario franchise (Mxx filenames)
+### Wario franchise (Mxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -307,7 +318,7 @@ Ashley's Song | M08 | 27A8
 ```
 M09 through M18 are snippets of music that play during microgames on the WarioWare stage if "WarioWare, Inc." is the song that's currently playing. They occupy song IDs 27A9 through 27B2.
 
-Animal Crossing franchise (Nxx filenames)
+### Animal Crossing franchise (Nxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -326,10 +337,11 @@ Rockin' K.K. | N10 | 27BC
 DJ K.K. | N11 | 27BD
 K.K. Condor | N12 | 27BE
 ```
-N04/27B6 is referenced, codenamed "RADIOTAISO"
+N04/27B6 is referenced, codenamed "RADIOTAISO".
+
 N07 through N12 only play during K.K. Rider's concerts on the Smashville stage (8pm on Saturday).
 
-Kid Icarus franchise (Pxx filenames)
+### Kid Icarus franchise (Pxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -343,7 +355,7 @@ Kid Icarus Original Medley | P04 | 27C2
 ```
 Oxx filenames were likely skipped to avoid confusion between the letter O and the number 0.
 
-Famicom franchise (Qxx filenames)
+### Famicom franchise (Qxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -364,9 +376,9 @@ Tunnel Scene (X) | Q12 | 27CE
 Power-Up Music | Q13 | 27CF
 Douchuumen (Nazo no Murasamejo) | Q14 | 27D0
 ```
-Q03/27C5 is referenced, codenamed "SPORTSMEDLEY"
+Q03/27C5 is referenced, codenamed "SPORTSMEDLEY".
 
-Miscellaneous franchise (Rxx filenames)
+### Miscellaneous franchise (Rxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -390,10 +402,11 @@ Brain Age: Train Your Brain in Minutes a Day | R15 | 27DF
 Opening Theme (Wii Sports) | R16 | 27E0
 Charge! (Wii Play) | R17 | 27E1
 ```
-R01/27D1 is referenced, codenamed "WILDTRACKS"
-R03 is codenamed "ELECTRO", and it is the ambient noise that plays on the Electroplankton stage
+R01/27D1 is referenced, codenamed "WILDTRACKS".
 
-Metal Gear franchise (Sxx filenames)
+R03 is codenamed "ELECTRO", and it is the ambient noise that plays on the Electroplankton stage.
+
+### Metal Gear franchise (Sxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -410,10 +423,11 @@ Battle in the Base | S08 | 27E9
 Theme of Solid Snake | S10 | 27EB
 Calling to the Night | S11 | 27EC
 ```
-S01/27E2 is referenced, codenamed "MAINTHEME"
-S09/27EA is referenced, codenamed "BEATMANIA"
+S01/27E2 is referenced, codenamed "MAINTHEME".
 
-Txx filenames (a few Super Smash Bros. franchise songs)
+S09/27EA is referenced, codenamed "BEATMANIA".
+
+### Txx filenames (a few Super Smash Bros. franchise songs)
 ```handsontable
 # COLUMNS
 Song Title
@@ -425,10 +439,11 @@ Menu (Super Smash Bros. Melee) | T02 | 27EE
 Opening (Super Smash Bros. Melee) | T03 | 27EF
 Vs. Master Hand | T05 | 27F1
 ```
-T04/27F0 is referenced, codenamed "HOWTOPLAY"
+T04/27F0 is referenced, codenamed "HOWTOPLAY".
+
 Vs. Master Hand only plays when fighting Master Hand at the end of Classic Mode.
 
-Sonic franchise (Uxx filenames)
+### Sonic franchise (Uxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -448,9 +463,9 @@ Right There, Ride On | U11 | 27FC
 HIS WORLD (Instrumental) | U12 | 27FD
 Seven Rings In Hand | U13 | 27FE
 ```
-U05/27F6 is referenced, codenamed "UCANDO"
+U05/27F6 is referenced, codenamed "UCANDO".
 
-Super Smash Bros. Melee music (Wxx filenames)
+### Super Smash Bros. Melee music (Wxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -488,11 +503,11 @@ Mute City (Melee) | W29 | 281B
 Menu (Melee) | W30 | 281C
 Giga Bowser (Melee) | W31 | 281D
 ```
-W22/2814 is not referenced anywhere
+W22/2814 is not referenced anywhere.
 
 281E is a silent, unnamed song ID.
 
-Subspace Emissary franchise (Yxx filenames)
+### Subspace Emissary franchise (Yxx filenames)
 ```handsontable
 # COLUMNS
 Song Title
@@ -519,7 +534,7 @@ SSE Final Results | Y17 | 282F
 ```
 A number of these tracks are not officially named, and have unofficial names in the table.
 
-Various jingles (Zxx filenames)
+### Various jingles (Zxx filenames)
 None of these songs loop.
 ```handsontable
 # COLUMNS
@@ -556,5 +571,7 @@ New Feature! 4 | Z57 | 286A
 New Feature! 5 | Z58 | 286B
 ```
 Song IDs 2865 and 2866 are silent.
+
 There is 1 song ID for every character's victory theme, meaning that several song IDs reference the same file.
+
 Song IDs 285E and 285F likely correspond to victory themes for cut characters Mewtwo and Roy respectively, given that they point to the Pokémon and Fire Emblem themes.
